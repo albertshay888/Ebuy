@@ -20,7 +20,6 @@ app.use('/user', userRouter);
 
 const PORT = process.env.PORT || 5000;
 const CONNECTION_URL = process.env.MONGO_URI;
-//('mongodb+srv://albert:123123abc@cluster0.ea3ug.mongodb.net/myFirstDatabase?retryWrites=true&w=majority');
 
 //connect to mongodb db
 mongoose
