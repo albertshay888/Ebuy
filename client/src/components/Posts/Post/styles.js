@@ -97,4 +97,8 @@ export default makeStyles({
     left: '20px',
     color: 'white',
   },
+  like: {
+    fontFamily: 'Montserrat',
+    fontSize: '1px',
+  },
 });

@@ -3,6 +3,7 @@ import { TextField, Grid, InputAdornment, IconButton } from '@material-ui/core';
 
 import Visibility from '@material-ui/icons/Visibility';
 import VisibilityOff from '@material-ui/icons/VisibilityOff';
+import { fontSize } from '@mui/system';
 
 const Input = ({
   name,
@@ -23,9 +24,14 @@ const Input = ({
       label={label}
       autoFocus={autoFocus}
       type={type}
+      InputLabelProps={{
+        style: { fontSize: 12 },
+      }}
       InputProps={
         name === 'password'
           ? {
+              style: { fontSize: 12 },
+
               endAdornment: (
                 <InputAdornment position='end'>
                   <IconButton onClick={handleShowPassword}>

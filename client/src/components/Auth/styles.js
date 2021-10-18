@@ -43,4 +43,14 @@ export default makeStyles((theme) => ({
     fontFamily: 'Montserrat',
     fontWeight: '900',
   },
+  name: {
+    fontFamily: 'Montserrat',
+    fontSize: '12',
+    color: '#',
+  },
+  signup: {
+    hover: 'red',
+    fontFamily: 'Montserrat',
+    fontSize: '10',
+  },
 }));

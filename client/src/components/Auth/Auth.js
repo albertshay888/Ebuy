@@ -70,7 +70,12 @@ const SignUp = () => {
 
   const handleChange = (e) =>
     setForm({ ...form, [e.target.name]: e.target.value });
-
+  const MouseOver = (event) => {
+    event.target.style.color = 'blue';
+  };
+  const MouseOut = (event) => {
+    event.target.style.color = '';
+  };
   return (
     <Container component='main' maxWidth='xs'>
       <Paper className={classes.paper} elevation={3}>
@@ -149,9 +154,24 @@ const SignUp = () => {
           <Grid container justify='flex-end'>
             <Grid item>
               <Button onClick={switchMode} className={classes.button}>
-                {isSignup
-                  ? 'Already have an account? Sign in'
-                  : "Don't have an account? Sign Up"}
+                {isSignup ? (
+                  <Typography
+                    className={classes.signup}
+                    onMouseOver={MouseOver}
+                    onMouseOut={MouseOut}
+                  >
+                    Already have an account? Sign in
+                  </Typography>
+                ) : (
+                  <Typography
+                    className={classes.signup}
+                    onMouseOver={MouseOver}
+                    onMouseOut={MouseOut}
+                  >
+                    {' '}
+                    Don't have an account? Sign Up
+                  </Typography>
+                )}
               </Button>
             </Grid>
           </Grid>

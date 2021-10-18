@@ -6,6 +6,7 @@ import { useHistory } from 'react-router-dom';
 import { createPost, updatePost } from '../../actions/posts';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import UploadIcon from './UploadIcon';
 import useStyles from './styles';
 
 const Form = ({ currentId, setCurrentId }) => {
@@ -71,29 +72,41 @@ const Form = ({ currentId, setCurrentId }) => {
         onSubmit={handleSubmit}
       >
         <Typography variant='h7'>
-          {currentId ? `Editing "${post?.title}"` : 'List item to sell'}
+          {currentId ? `Editing "${post?.title}"` : 'Post your listing'}
         </Typography>
         <TextField
           name='title'
           variant='outlined'
-          label='product name'
+          label='Listing name'
           fullWidth
           value={postData.title}
           onChange={(e) => setPostData({ ...postData, title: e.target.value })}
           required={true}
+          InputLabelProps={{
+            style: { fontSize: 12 },
+          }}
+          InputProps={{
+            style: { fontSize: 12 },
+          }}
         />
         <TextField
           name='message'
           variant='outlined'
-          label='Product description'
+          label='Listing description'
           fullWidth
           multiline
-          rows={4}
+          rows={8}
           value={postData.message}
           onChange={(e) =>
             setPostData({ ...postData, message: e.target.value })
           }
           required={true}
+          InputLabelProps={{
+            style: { fontSize: 12 },
+          }}
+          InputProps={{
+            style: { fontSize: 12 },
+          }}
         />
         <TextField
           name='tags'
@@ -106,23 +119,31 @@ const Form = ({ currentId, setCurrentId }) => {
           }
           required={true}
           type='number'
+          InputLabelProps={{
+            style: { fontSize: 12 },
+          }}
+          InputProps={{
+            style: { fontSize: 12 },
+            fontFamily: 'Montserrat',
+          }}
         />
         <div className={classes.fileInput} required={true}>
           <FileBase
             type='file'
-            multiple={false}
+            multiple={true}
             onDone={({ base64 }) =>
               setPostData({ ...postData, selectedFile: base64 })
             }
             value={postData.selectedFile}
+            icon={<UploadIcon />}
+            className={classes.fileInput}
+
             //required
 
             // name='requiredField'
             // ref={register({ required: true })}
           />
-
           {/*{errors.requiredField && <span>This field is required</span>}*/}
-
           {/* <input
             type='file'
             multiple={false}

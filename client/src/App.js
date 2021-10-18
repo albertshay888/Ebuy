@@ -70,12 +70,13 @@ import PostDetails from './components/PostDetails/PostDetails';
 import Navbar from './components/Navbar/Navbar';
 import Home from './components/Home/Home';
 import Auth from './components/Auth/Auth';
+import createHistory from 'history/createBrowserHistory';
 
 const App = () => {
   const user = JSON.parse(localStorage.getItem('profile'));
-
+  const history = createHistory();
   return (
-    <BrowserRouter>
+    <BrowserRouter history={history}>
       <Container maxWidth='xl'>
         <Navbar />
         <Switch>

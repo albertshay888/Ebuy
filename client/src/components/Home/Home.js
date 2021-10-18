@@ -98,14 +98,26 @@ const Home = () => {
                 fullWidth
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
+                InputProps={{
+                  style: { fontSize: 12 },
+                }}
+                InputLabelProps={{
+                  style: { fontSize: 12 },
+                }}
               />
               <ChipInput
                 style={{ margin: '10px 0' }}
                 value={tags}
                 onAdd={(chip) => handleAddChip(chip)}
                 onDelete={(chip) => handleDeleteChip(chip)}
-                label='Search Price'
+                label='Search price'
                 variant='outlined'
+                InputProps={{
+                  style: { fontSize: 12 },
+                }}
+                InputLabelProps={{
+                  style: { fontSize: 12 },
+                }}
               />
               <Button
                 onClick={searchPost}
@@ -119,14 +131,12 @@ const Home = () => {
             </AppBar>
             <Form currentId={currentId} setCurrentId={setCurrentId} />
           </Grid>
-
-          <Grid item xs={12} sm={6} md={9}>
-            {!searchQuery && !tags.length && (
-              <Paper elevation={6}>
-                <Pagination page={page} className={classes.pagination} />
-              </Paper>
-            )}
-          </Grid>
+        </Grid>
+        <br />
+        <Grid item xs={12} sm={6} md={9}>
+          {!searchQuery && !tags.length && (
+            <Pagination page={page} className={classes.pagination} />
+          )}
         </Grid>
       </Container>
     </Grow>

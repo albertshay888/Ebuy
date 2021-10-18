@@ -24,10 +24,11 @@ export default makeStyles((theme) => ({
     fontFamily: 'Montserrat',
   },
   fileInput: {
-    width: '97%',
+    width: '100%',
     margin: '10px 0',
     color: 'black',
     fontFamily: 'Montserrat',
+    icon: 'fa fa-file-circle',
   },
   buttonSubmit: {
     marginBottom: 10,

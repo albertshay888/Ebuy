@@ -12,6 +12,10 @@ const authReducer = (state = { authData: null }, action) => {
       return { ...state, authData: null, loading: false, errors: null };
     default:
       return state;
+    // case actionType.LOGIN:
+    //   localStorage.clear();
+
+    //   return { ...state, authData: null, loading: false, errors: null };
   }
 };
 

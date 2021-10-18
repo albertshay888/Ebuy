@@ -126,11 +126,13 @@ import {
   Typography,
   CircularProgress,
   Divider,
+  Button,
 } from '@material-ui/core/';
+
 import { useDispatch, useSelector } from 'react-redux';
 import moment from 'moment';
 import { useParams, useHistory } from 'react-router-dom';
-
+import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import { getPost, getPostsBySearch } from '../../actions/posts';
 import CommentSection from './CommentSection';
 import useStyles from './styles';
@@ -192,7 +194,7 @@ const Post = () => {
             {post.message}
           </Typography>
           <Typography className={classes.nameLabel}>
-            Created by: {post.name}
+            Hosted by: {post.name}
           </Typography>
           <Typography variant='body1' className={classes.nameLabel}>
             {moment(post.createdAt).fromNow()}
@@ -241,7 +243,10 @@ const Post = () => {
                     {message}
                   </Typography>
                   <Typography gutterBottom variant='subtitle1'>
-                    Likes: {likes.length}
+                    <FavoriteBorderIcon>
+                      alt={`: ${likes.length}`}
+                    </FavoriteBorderIcon>
+                    {/* Likes: {likes.length}*/}
                   </Typography>
                   <img src={selectedFile} width='200px' alt='placeholder' />
                 </div>
