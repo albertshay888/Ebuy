@@ -4,6 +4,7 @@ import {
   FETCH_POST,
   // FETCH_BY_USER,
   // FETCH_BY_LIKES,
+  PROFILE,
   CREATE,
   UPDATE,
   DELETE,
@@ -28,8 +29,8 @@ export default (state = { isLoading: true, posts: [] }, action) => {
       return { ...state, posts: action.payload.data };
     // case FETCH_BY_LIKES:
     //   return { ...state, posts: action.payload.data };
-    // case FETCH_BY_USER:
-    //   return { ...state, posts: action.payload.data };
+    case PROFILE:
+      return { ...state, posts: action.payload.data };
     case FETCH_POST:
       return { ...state, post: action.payload.post };
     case LIKE:

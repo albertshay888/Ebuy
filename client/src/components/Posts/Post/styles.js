@@ -39,6 +39,8 @@ export default makeStyles({
     top: '10px',
     right: '10px',
     color: 'white',
+    fontFamily: 'Montserrat',
+    fontSize: '14px',
   },
   overlay4: {
     position: 'absolute',
@@ -96,6 +98,8 @@ export default makeStyles({
     top: '1px',
     left: '20px',
     color: 'white',
+    fontWeight: 'bold',
+    fontSize: '14px',
   },
   like: {
     fontFamily: 'Montserrat',

@@ -41,17 +41,26 @@ export default makeStyles((theme) => ({
     height: '39vh',
     fontFamily: 'Montserrat',
   },
+  messages: {
+    marginLeft: '0px',
+  },
   commentsOuterContainer: {
     display: 'flex',
     justifyContent: 'space-between',
     fontFamily: 'Montserrat',
+    fontSize: '16px',
   },
   commentsInnerContainer: {
-    height: '200px',
+    height: '275px',
     overflowY: 'auto',
-    marginRight: '30px',
+    marginRight: '15px',
     fontFamily: 'Montserrat',
-    fontSize: '20px',
+    fontSize: '16px',
+    marginLeft: '0px',
+  },
+  price: {
+    fontFamily: 'Montserrat',
+    fontSize: '15px',
   },
   buttonMessage: {
     fontFamily: 'Montserrat',
@@ -60,5 +69,48 @@ export default makeStyles((theme) => ({
   },
   nameLabel: {
     fontFamily: 'Montserrat',
+    fontSize: '16px',
+  },
+  timeCreated: {
+    fontFamily: 'Montserrat',
+    fontSize: '13px',
+  },
+  postDetails: {
+    fontFamily: 'Montserrat',
+    fontSize: '12px',
+  },
+  hostedBy: {
+    fontFamily: 'Montserrat',
+    fontSize: '10px',
+  },
+  alsoLike: {
+    fontFamily: 'Montserrat',
+    fontSize: '10px',
+  },
+  likeIcon: {
+    marginTop: '0px',
+  },
+  inputRoot: {
+    fontSize: 12,
+    fontFamily: 'Montserrat',
+  },
+  labelRoot: {
+    fontFamily: 'Montserrat',
+    fontSize: 12,
+    color: 'black',
+    '&$labelFocused': {
+      color: 'black',
+    },
+  },
+  labelFocused: {},
+  leaveMessage: {},
+  messageDetails: {
+    fontFamily: 'Montserrat',
+    fontSize: '13px',
+  },
+  messageName: {
+    fontFamily: 'Montserrat',
+    fontWeight: 'bold',
+    fontSize: '14px',
   },
 }));

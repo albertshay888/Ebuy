@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import {
   Container,
   Grow,
   Grid,
   Paper,
   AppBar,
+  BottomNavigation,
   TextField,
   Button,
 } from '@material-ui/core';
@@ -14,7 +15,7 @@ import { useHistory, useLocation } from 'react-router-dom';
 import {
   getPosts,
   getPostsBySearch,
-  // getPostsByUser,
+  getPostsByUser,
 } from '../../actions/posts';
 import Pagination from '../Pagination';
 import Posts from '../Posts/Posts';
@@ -22,10 +23,13 @@ import ChipInput from 'material-ui-chip-input';
 import Form from '../Form/Form';
 import ModalUnstyledDemo from '../Modal/Modal';
 import useStyles from './styles';
+import AddBoxIcon from '@mui/icons-material/AddBox';
 function useQuery() {
   return new URLSearchParams(useLocation().search);
 }
+const scrollToRef = (ref) => window.scrollTo(0, ref.current.offsetTop);
 const Home = () => {
+  const [show, setShow] = useState(false);
   const [currentId, setCurrentId] = useState(0);
   const dispatch = useDispatch();
   const query = useQuery();
@@ -35,7 +39,8 @@ const Home = () => {
   const classes = useStyles();
   const [search, setSearch] = useState('');
   const [tags, setTags] = useState([]);
-
+  const [location, setLocation] = useState('');
+  const myRef = useRef(null);
   // useEffect(() => {
   //   dispatch(getPosts());
   // }, [currentId, dispatch]);
@@ -53,12 +58,13 @@ const Home = () => {
       history.push('/');
     }
   };
-  // const searchByUser = () => {
-  //   const user = JSON.parse(localStorage.getItem('profile'));
-  //   if (user) dispatch(getPostsByUser(user.result._id));
-  //   history.push(`/posts/user/`);
-  //   console.log(user);
-  // };
+
+  const searchByUser = () => {
+    const user = JSON.parse(localStorage.getItem('profile'));
+    if (user) dispatch(getPostsByUser(user.result._id));
+    history.push(`/posts/user/`);
+    console.log(user);
+  };
   const handleKeyPress = (e) => {
     if (e.keycode === 13) {
       searchPost();
@@ -70,21 +76,61 @@ const Home = () => {
   const handleDeleteChip = (chipToDelete) =>
     setTags(tags.filter((tag) => tag !== chipToDelete));
 
-  return (
-    <Grow in>
-      <Container maxWidth='xl' position>
-        <Grid
-          container
-          justify='space-between'
-          alignItems='stretch'
-          spacing={3}
-          className={classes.gridContainer}
-        >
-          <Grid item xs={12} sm={6} md={9}>
-            <Posts setCurrentId={setCurrentId} />
-          </Grid>
+  const showHideClassName = show
+    ? classes.inputFormShow
+    : classes.inputFormHide;
 
-          <Grid item xs={12} sm={6} md={3}>
+  const executeScroll = () => scrollToRef(myRef);
+  const showModal = () => {
+    setShow(!show);
+    executeScroll();
+  };
+
+  // const hideModal = () => {
+  //   setShow(false);
+  // };
+  return (
+    <>
+      <div ref={myRef} className={showHideClassName}>
+        <Grid item xs={16} sm={9} md={12} className={classes.centerForm}>
+          <Form
+            currentId={currentId}
+            setCurrentId={setCurrentId}
+            showModal={showModal}
+            location={location}
+            setLocation={setLocation}
+          />
+        </Grid>
+      </div>
+      <AppBar
+        className={classes.addBar}
+        position='fixed'
+        color='inherit'
+        elevation={0}
+      >
+        <AddBoxIcon
+          className={classes.addIcon}
+          type='button'
+          fontSize='large'
+          onClick={showModal}
+        />
+      </AppBar>
+      <Grow in>
+        <Container maxWidth='xl' position='center'>
+          <Grid
+            item
+            container
+            justify='space-between'
+            alignItems='stretch'
+            spacing={3}
+            className={classes.gridContainer}
+          >
+            <Grid item xs={16} sm={9} md={12}>
+              <Posts setCurrentId={setCurrentId} showModal={showModal} />
+            </Grid>
+
+            {/*
+          <Grid item xs={12} sm={6} md={9}>
             <AppBar
               className={classes.appBarSearch}
               position='static'
@@ -127,19 +173,18 @@ const Home = () => {
               >
                 Search
               </Button>
-              {/*  <Button onClick={searchByUser}>My listing</Button>*/}
             </AppBar>
-            <Form currentId={currentId} setCurrentId={setCurrentId} />
+              </Grid> */}
           </Grid>
-        </Grid>
-        <br />
-        <Grid item xs={12} sm={6} md={9}>
-          {!searchQuery && !tags.length && (
-            <Pagination page={page} className={classes.pagination} />
-          )}
-        </Grid>
-      </Container>
-    </Grow>
+          <br />
+          <Grid item xs={16} sm={9} md={12}>
+            {!searchQuery && !tags.length && (
+              <Pagination page={page} className={classes.pagination} />
+            )}
+          </Grid>
+        </Container>
+      </Grow>
+    </>
   );
 };
 

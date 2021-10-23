@@ -43,7 +43,18 @@ export const getPostsBySearch = async (req, res) => {
     res.status(404).json({ message: error.message });
   }
 };
+export const getPostsByUser = async (req, res) => {
+  const { user } = req.query;
+  console.log('user: backend', user);
+  try {
+    const posts = await PostMessage.find({ creator: user });
 
+    res.json({ data: posts });
+    console.log(posts);
+  } catch (error) {
+    res.status(404).json({ message: error.message });
+  }
+};
 export const getPost = async (req, res) => {
   const { id } = req.params;
 
@@ -58,9 +69,10 @@ export const getPost = async (req, res) => {
 
 export const createPost = async (req, res) => {
   const post = req.body;
-
+  console.log('post: backend', post);
   const newPostMessage = new PostMessage({
     ...post,
+    // location: req.location,
     creator: req.userId,
     createdAt: new Date().toISOString(),
   });
@@ -76,12 +88,21 @@ export const createPost = async (req, res) => {
 
 export const updatePost = async (req, res) => {
   const { id } = req.params;
-  const { title, message, creator, selectedFile, tags } = req.body;
+  const { title, message, creator, location, selectedFile, tags } = req.body;
+  // const { title, message, creator, selectedFile, tags } = req.body;
 
   if (!mongoose.Types.ObjectId.isValid(id))
     return res.status(404).send(`No post with id: ${id}`);
 
-  const updatedPost = { creator, title, message, tags, selectedFile, _id: id };
+  const updatedPost = {
+    creator,
+    title,
+    message,
+    location,
+    tags,
+    selectedFile,
+    _id: id,
+  };
 
   await PostMessage.findByIdAndUpdate(id, updatedPost, { new: true });
 
@@ -142,3 +163,6 @@ export const commentPost = async (req, res) => {
 };
 
 export default router;
+// requireLogin(function
+
+//   )

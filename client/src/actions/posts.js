@@ -9,6 +9,7 @@ import {
   DELETE,
   LIKE,
   COMMENT,
+  PROFILE,
   FETCH_BY_USER,
   FETCH_BY_LIKES,
 } from '../constants/actionTypes';
@@ -56,19 +57,19 @@ export const getPosts = (page) => async (dispatch) => {
 //     console.log(error);
 //   }
 // };
-// export const getPostsByUser = (user) => async (dispatch) => {
-//   try {
-//     dispatch({ type: START_LOADING });
-//     const {
-//       data: { data },
-//     } = await api.fetchPostsByUser(user);
-//     console.log(data);
-//     dispatch({ type: FETCH_BY_USER, payload: { data } });
-//     dispatch({ type: END_LOADING });
-//   } catch (error) {
-//     console.log(error);
-//   }
-// };
+export const getPostsByUser = (user) => async (dispatch) => {
+  try {
+    dispatch({ type: START_LOADING });
+    const {
+      data: { data },
+    } = await api.fetchPostsByUser(user);
+    console.log(data);
+    dispatch({ type: PROFILE, payload: { data } });
+    dispatch({ type: END_LOADING });
+  } catch (error) {
+    console.log(error);
+  }
+};
 export const getPostsBySearch = (searchQuery) => async (dispatch) => {
   try {
     dispatch({ type: START_LOADING });

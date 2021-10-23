@@ -70,6 +70,7 @@ import PostDetails from './components/PostDetails/PostDetails';
 import Navbar from './components/Navbar/Navbar';
 import Home from './components/Home/Home';
 import Auth from './components/Auth/Auth';
+// import Profile from './components/Profile/Profile';
 import createHistory from 'history/createBrowserHistory';
 
 const App = () => {
@@ -87,8 +88,12 @@ const App = () => {
           <Route
             path='/auth'
             exact
-            component={() => (!user ? <Auth /> : <Redirect to='/posts' />)}
+            // component={() => (!user ? <Auth /> : <Redirect to='/posts' />)}
+            component={Auth}
           />
+          {/*<Route path={`/profile/${user.results._id}`}>
+            <Profile />
+          </Route>*/}
         </Switch>
       </Container>
     </BrowserRouter>

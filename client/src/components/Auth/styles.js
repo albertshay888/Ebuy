@@ -52,5 +52,19 @@ export default makeStyles((theme) => ({
     hover: 'red',
     fontFamily: 'Montserrat',
     fontSize: '10',
+    cursor: 'pointer',
   },
+  inputRoot: {
+    fontSize: 11,
+    fontFamily: 'Montserrat',
+  },
+  labelRoot: {
+    fontSize: 12,
+    color: 'black',
+    fontFamily: 'Montserrat',
+    '&$labelFocused': {
+      color: 'black',
+    },
+  },
+  labelFocused: {},
 }));

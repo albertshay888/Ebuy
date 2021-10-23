@@ -174,32 +174,45 @@ const Post = () => {
     <Paper style={{ padding: '20px', borderRadius: '15px' }} elevation={6}>
       <div className={classes.card}>
         <div className={classes.section}>
-          <Typography variant='h3' component='h2' className={classes.nameLabel}>
+          <Typography variant='h6' component='h5' className={classes.nameLabel}>
             {post.title}
           </Typography>
           <Typography
             gutterBottom
-            variant='h6'
-            color='textSecondary'
-            component='h2'
+            variant='h7'
+            className={classes.price}
+            // color='textSecondary'
+            component='h3'
+            fontFamily='Montserrat'
           >
             {post?.tags?.map((tag) => `$${tag} `)}
           </Typography>
+
+          <Typography variant='body1' className={classes.timeCreated}>
+            {moment(post.createdAt).fromNow()}
+          </Typography>
+          <div className={classes.imageSection}>
+            <img
+              className={classes.media}
+              src={
+                post.selectedFile ||
+                'https://user-images.githubusercontent.com/194400/49531010-48dad180-f8b1-11e8-8d89-1e61320e1d82.png'
+              }
+              alt={post.title}
+            />
+          </div>
+          <Divider style={{ margin: '10px 0' }} />
           <Typography
             gutterBottom
             variant='body1'
             component='p'
-            className={classes.nameLabel}
+            className={classes.postDetails}
           >
             {post.message}
           </Typography>
-          <Typography className={classes.nameLabel}>
+          <Typography className={classes.hostedBy}>
             Hosted by: {post.name}
           </Typography>
-          <Typography variant='body1' className={classes.nameLabel}>
-            {moment(post.createdAt).fromNow()}
-          </Typography>
-
           <Divider style={{ margin: '20px 0' }} />
           {/* {(user?.result?.googleId === post?.creator ||
             user?.result?._id === post?.creator) && (
@@ -208,20 +221,15 @@ const Post = () => {
           <CommentSection post={post} className={classes.nameLabel} />
           <Divider style={{ margin: '20px 0' }} />
         </div>
-        <div className={classes.imageSection}>
-          <img
-            className={classes.media}
-            src={
-              post.selectedFile ||
-              'https://user-images.githubusercontent.com/194400/49531010-48dad180-f8b1-11e8-8d89-1e61320e1d82.png'
-            }
-            alt={post.title}
-          />
-        </div>
       </div>
       {!!recommendedPosts.length && (
         <div className={classes.section}>
-          <Typography gutterBottom variant='h5' className={classes.nameLabel}>
+          <Typography
+            className={classes.alsoLike}
+            gutterBottom
+            variant='h5'
+            className={classes.nameLabel}
+          >
             You might also like:
           </Typography>
           <Divider />
@@ -233,20 +241,37 @@ const Post = () => {
                   onClick={() => openPost(_id)}
                   key={_id}
                 >
-                  <Typography gutterBottom variant='h6'>
+                  <Typography
+                    gutterBottom
+                    variant='h6'
+                    className={classes.alsoLike}
+                  >
                     {title}
                   </Typography>
-                  <Typography gutterBottom variant='subtitle2'>
+                  <Typography
+                    gutterBottom
+                    variant='subtitle2'
+                    className={classes.alsoLike}
+                  >
                     {name}
                   </Typography>
-                  <Typography gutterBottom variant='subtitle2'>
+                  <Typography
+                    gutterBottom
+                    variant='subtitle2'
+                    className={classes.alsoLike}
+                  >
                     {message}
                   </Typography>
-                  <Typography gutterBottom variant='subtitle1'>
-                    <FavoriteBorderIcon>
-                      alt={`: ${likes.length}`}
-                    </FavoriteBorderIcon>
-                    {/* Likes: {likes.length}*/}
+                  <Typography
+                    className={classes.alsoLike}
+                    gutterBottom
+                    variant='subtitle1'
+                  >
+                    <FavoriteBorderIcon
+                      className={classes.likeIcon}
+                      alt={`: ${likes?.length}`}
+                    ></FavoriteBorderIcon>
+                    Likes: {likes?.length}
                   </Typography>
                   <img src={selectedFile} width='200px' alt='placeholder' />
                 </div>

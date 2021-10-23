@@ -34,29 +34,48 @@ const CommentSection = ({ post }) => {
     <div>
       <div className={classes.commentsOuterContainer}>
         <div className={classes.commentsInnerContainer}>
-          <Typography gutterBottom variant='h7'>
-            Messages
+          <Typography gutterBottom variant='h7' className={classes.messages}>
+            Messages:
           </Typography>
           {comments?.map((c, i) => (
-            <Typography key={i} gutterBottom variant='subtitle1'>
-              <strong>{c.split(': ')[0]}</strong>
-              {c.split(':')[1]}
+            <Typography
+              key={i}
+              className={classes.messageDetails}
+              gutterBottom
+              variant='subtitle1'
+            >
+              <strong className={classes.messageName}>
+                {c.split(`: `)[0]}
+              </strong>
+              : {c.split(`:`)[1]}
             </Typography>
           ))}
           <div ref={commentsRef} />
         </div>
         <div style={{ width: '70%' }}>
-          <Typography gutterBottom variant='h7'>
-            Leave message
+          <Typography
+            className={classes.leaveMessage}
+            gutterBottom
+            variant='h7'
+          >
+            Leave a message
           </Typography>
           <TextField
             fullWidth
-            rows={4}
+            rows={10}
             variant='outlined'
-            label='type message here...'
+            label='leave message...'
             multiline
             value={comment}
             onChange={(e) => setComment(e.target.value)}
+            InputProps={{ classes: { root: classes.inputRoot } }}
+            InputLabelProps={{
+              classes: {
+                root: classes.labelRoot,
+                focused: classes.labelFocused,
+              },
+            }}
+            margin='normal'
           />
           <br />
           <Button

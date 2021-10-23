@@ -8,6 +8,27 @@ export default makeStyles((theme) => ({
     padding: '16px',
     position: 'relative',
   },
+  addBar: {
+    borderRadius: 15,
+    margin: '500px 0',
+
+    display: 'flex',
+
+    flexDirection: 'row-reverse',
+    justifyContent: 'space-between-evenly',
+    alignItems: 'center',
+    backgroundColor: 'transparent',
+
+    // padding: '10px 50px',
+
+    height: '64px',
+  },
+  addIcon: {
+    float: 'right',
+  },
+  addName: {
+    display: 'block',
+  },
   pagination: {
     borderRadius: 4,
     marginTop: '1rem',
@@ -29,5 +50,25 @@ export default makeStyles((theme) => ({
     width: '100%',
     zIndex: 1,
     color: 'black',
+  },
+  inputFormHide: {
+    display: 'none',
+  },
+  inputFormShow: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  add: {
+    // width: '25px',
+    position: 'fixed',
+    top: '25%',
+    left: '10px',
+  },
+  centerForm: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: '100%',
   },
 }));

@@ -19,7 +19,7 @@ import { useHistory } from 'react-router-dom';
 import { likePost, deletePost } from '../../../actions/posts';
 import useStyles from './styles';
 
-const Post = ({ post, setCurrentId }) => {
+const Post = ({ post, setCurrentId, showModal }) => {
   const dispatch = useDispatch();
   const classes = useStyles();
   const user = JSON.parse(localStorage.getItem('profile'));
@@ -86,7 +86,10 @@ const Post = ({ post, setCurrentId }) => {
         user?.result?._id === post?.creator) && (
         <div className={classes.overlay2}>
           <Button
-            onClick={() => setCurrentId(post._id)}
+            onClick={() => {
+              showModal();
+              setCurrentId(post._id);
+            }}
             style={{ color: 'white' }}
             size='small'
           >
@@ -123,7 +126,7 @@ const Post = ({ post, setCurrentId }) => {
         variant='h6'
         component='h2'
       >
-        {`$${post.tags} /night`}
+        {`$${post.tags}`}
       </Typography>
 
       {/*<CardContent className={classes.message}>

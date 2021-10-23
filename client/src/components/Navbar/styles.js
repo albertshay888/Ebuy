@@ -7,15 +7,16 @@ export default makeStyles((theme) => ({
 
     display: 'flex',
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    justifyContent: 'space-between-evenly',
     alignItems: 'center',
     backgroundColor: 'black',
-    padding: '10px 50px',
+    // padding: '10px 50px',
     height: '64px',
-    [theme.breakpoints.down('xs')]: {
-      justifyContent: 'space-around',
+    [theme.breakpoints.down('sm')]: {
+      justifyContent: 'space-around-evenly',
     },
   },
+
   heading: {
     color: 'white',
     fontFamily: 'Montserrat',
@@ -30,18 +31,21 @@ export default makeStyles((theme) => ({
     display: 'flex',
     justifyContent: 'flex-start',
 
-    alignItems: 'center',
+    // alignItems: 'center',
     marginLeft: '0px',
 
     color: 'white',
     fontFamily: 'Montserrat',
+    // [theme.breakpoints.down('sm')]: {
+    //   display: 'none',
+    // },
   },
   text: {
     display: 'flex',
     alignItems: 'center',
-    height: '35px',
+    height: '40px',
 
-    [theme.breakpoints.down('xs')]: {
+    [theme.breakpoints.down('sm')]: {
       display: 'none',
     },
   },
@@ -55,14 +59,14 @@ export default makeStyles((theme) => ({
   },
   profile: {
     display: 'flex',
-    justifyContent: 'space-between',
-    width: '400px',
-    alignItems: 'center',
-    [theme.breakpoints.down('sm')]: {
-      width: 'auto',
-      // marginTop: 20,
-      justifyContent: 'center',
-    },
+    justifyContent: 'space-around',
+    // width: '200px',
+    // alignItems: 'center',
+    // [theme.breakpoints.down('sm')]: {
+    //   width: 'auto',
+    //   marginRight: '0px',
+    //   justifyContent: 'center',
+    // },
   },
   userName: {
     display: 'flex',
@@ -72,10 +76,13 @@ export default makeStyles((theme) => ({
     marginRight: '10px',
     color: 'white',
     fontFamily: 'Montserrat',
+    [theme.breakpoints.down('md')]: {
+      display: 'none',
+    },
   },
   brandContainer: {
     display: 'flex',
-    alignItems: 'center',
+    marginLeft: '0px',
   },
   brand: {
     display: 'flex',
@@ -84,7 +91,9 @@ export default makeStyles((theme) => ({
     marginTop: '5px',
     justifyContent: 'flex-start',
   },
-
+  paper: {
+    blackgroundColor: 'transparent',
+  },
   black: {
     display: 'flex',
     marginLeft: '5px',
@@ -92,22 +101,94 @@ export default makeStyles((theme) => ({
     backgroundColor: 'black',
     fontFamily: 'Montserrat',
   },
+  add: {
+    color: 'white',
+  },
   logout: {
     backgroundColor: 'white',
 
+    marginRight: '0px',
+    // marginLeft: '0px',
+    fontFamily: 'Montserrat',
+    color: 'black',
+    fontSize: '10px',
+
+    display: 'flex',
+    // position: 'absolute',
+    // float: 'right',
+
+    width: '73px',
+    fontWeight: '900',
+    justifyContent: 'center',
+  },
+  logo: {
+    display: 'flex',
+    cursor: 'pointer',
+    marginRight: '0px',
+  },
+  searchinput: {
+    borderRadius: 4,
+    display: 'flex',
+    position: 'relative',
+    fontFamily: 'Montserrat',
+    width: '70%',
+    height: '50%',
+    backgroundColor: 'white',
+    fontColor: 'black',
+    whiteSpace: 'nowrap',
+    overflow: 'hidden',
+  },
+  pricesearchinput: {
+    borderRadius: 4,
+    display: 'flex',
+    position: 'relative',
+    fontFamily: 'Montserrat',
+    width: '10%',
+    height: '50%',
+    // alignItems: 'center',
+    // alignText: 'center',
+    whiteSpace: 'nowrap',
+    overflow: 'hidden',
+    marginLeft: '11px',
+    backgroundColor: 'white',
+    fontColor: 'black',
+    [theme.breakpoints.down('xs')]: {
+      display: 'none',
+    },
+    border: 'none',
+  },
+  searchButton: {
+    backgroundColor: 'white',
+    marginLeft: '10px',
     marginRight: '0px',
 
     fontFamily: 'Montserrat',
     color: 'black',
     fontSize: '10px',
     display: 'flex',
-    justifyContent: 'flex-end',
 
     width: '75px',
     fontWeight: '900',
+    [theme.breakpoints.down('xs')]: {
+      display: 'none',
+    },
   },
-  logo: {
+  avatar: {
     display: 'flex',
     cursor: 'pointer',
+    marginRight: '0px',
   },
+  inputRoot: {
+    fontSize: 12,
+    fontFamily: 'Montserrat',
+  },
+  labelRoot: {
+    fontSize: 12,
+    color: 'black',
+    fontFamily: 'Montserrat',
+    '&$labelFocused': {
+      color: 'black',
+    },
+  },
+  labelFocused: {},
 }));

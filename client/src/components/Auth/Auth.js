@@ -8,7 +8,7 @@ import {
   Typography,
   Container,
 } from '@material-ui/core';
-import { useHistory } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
 import { GoogleLogin } from 'react-google-login';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 
@@ -106,6 +106,12 @@ const SignUp = () => {
               label='Email Address'
               handleChange={handleChange}
               type='email'
+              InputProps={{
+                style: { fontSize: 12, fontFamily: 'Montserrat' },
+              }}
+              InputLabelProps={{
+                style: { fontSize: 12 },
+              }}
             />
             <Input
               name='password'
@@ -113,6 +119,12 @@ const SignUp = () => {
               handleChange={handleChange}
               type={showPassword ? 'text' : 'password'}
               handleShowPassword={handleShowPassword}
+              InputProps={{
+                style: { fontSize: 12 },
+              }}
+              InputLabelProps={{
+                style: { fontSize: 12 },
+              }}
             />
             {isSignup && (
               <Input
@@ -120,6 +132,12 @@ const SignUp = () => {
                 label='Repeat Password'
                 handleChange={handleChange}
                 type='password'
+                InputProps={{
+                  style: { fontSize: 12 },
+                }}
+                InputLabelProps={{
+                  style: { fontSize: 12 },
+                }}
               />
             )}
           </Grid>
@@ -159,6 +177,8 @@ const SignUp = () => {
                     className={classes.signup}
                     onMouseOver={MouseOver}
                     onMouseOut={MouseOut}
+                    component={Link}
+                    to='/auth'
                   >
                     Already have an account? Sign in
                   </Typography>
@@ -167,6 +187,8 @@ const SignUp = () => {
                     className={classes.signup}
                     onMouseOver={MouseOver}
                     onMouseOut={MouseOut}
+                    component={Link}
+                    to='/auth'
                   >
                     {' '}
                     Don't have an account? Sign Up

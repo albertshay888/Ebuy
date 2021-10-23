@@ -20,11 +20,8 @@ export const fetchPostsBySearch = (searchQuery) =>
       searchQuery.tags
     }`
   );
-// export const fetchPostsByUser = (user) =>
-//   API.get(
-//     `/posts/user?user=${user}
-//     }`
-//   );
+export const fetchPostsByUser = (user) =>
+  API.get(`/profile/user?user:id=${user.results._id}`);
 // export const fetchPostsByLikes = (user) =>
 //   API.get(
 //     `/posts/user?user=${user}/likes

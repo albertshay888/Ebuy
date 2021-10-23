@@ -11,10 +11,7 @@ const app = express();
 
 app.use(cors());
 //localhost:5000/posts
-app.use(express.static(`client/build`));
-app.get(`*`, (req, res) => {
-  res.sendFile(path.resolve(__dirname, `client`, `build`, `index.html`));
-});
+
 //general middleware setup
 app.use(bodyParser.json({ limit: '30mb', extended: true }));
 app.use(bodyParser.urlencoded({ limit: '30mb', extended: true }));
@@ -22,6 +19,19 @@ app.use(bodyParser.urlencoded({ limit: '30mb', extended: true }));
 app.use('/posts', postRoutes);
 app.use('/user', userRouter);
 
+const __dirname = path.resolve();
+app.use('/uploads', express.static(path.join(__dirname, '/uploads')));
+
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static(path.join(__dirname, '/client/build')));
+  app.get(`*`, (req, res) => {
+    res.sendFile(path.resolve(__dirname, `client`, `build`, `index.html`));
+  });
+} else {
+  app.get('/', (req, res) => {
+    res.send('API is running...');
+  });
+}
 const PORT = process.env.PORT || 5000;
 const CONNECTION_URL = process.env.MONGO_URI;
 
