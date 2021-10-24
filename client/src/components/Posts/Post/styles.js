@@ -64,6 +64,14 @@ export default makeStyles({
     padding: '0 10px',
 
     color: 'black',
+    fontSize: '14px',
+    fontWeight: 'bold',
+    fontFamily: 'Montserrat',
+  },
+  location: {
+    padding: '0 10px',
+
+    color: 'black',
     fontSize: '12px',
     fontFamily: 'Montserrat',
   },
@@ -77,7 +85,7 @@ export default makeStyles({
     padding: '0 10px',
     color: 'black',
     fontWeight: 'bold',
-    fontSize: '12px',
+    fontSize: '13px',
     fontFamily: 'Montserrat',
   },
   cardActions: {

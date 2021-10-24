@@ -182,6 +182,7 @@
 // export default Form;
 
 import React, { useState, useEffect, useRef } from 'react';
+import { FormControl } from '@mui/material';
 import { TextField, Button, Typography, Paper, Grid } from '@material-ui/core';
 import { useDispatch, useSelector } from 'react-redux';
 import FileBase from 'react-file-base64';
@@ -206,8 +207,8 @@ const Form = ({
   showModal,
   currentId,
   setCurrentId,
-  location,
-  setLocation,
+  // location,
+  // setLocation,
 }) => {
   const [postData, setPostData] = useState({
     title: '',
@@ -216,7 +217,7 @@ const Form = ({
     tags: [],
     selectedFile: '',
   });
-
+  const [location, setLocation] = useState('');
   const post = useSelector((state) =>
     currentId
       ? state.posts.posts.find((message) => message._id === currentId)
@@ -227,6 +228,7 @@ const Form = ({
   const user = JSON.parse(localStorage.getItem('profile'));
   const notify = () => toast('Please select image');
   const history = useHistory();
+  const inputEl = useRef(null);
 
   const clear = () => {
     setCurrentId(0);
@@ -301,7 +303,7 @@ const Form = ({
   // const placesAutocomplete = places({
   //   addId: process.env.REACT_APP_ALOGLIA_APP_ID,
   //   apiKey: process.env.REACT_APP_ALOGLIA_API_KEY,
-  //   container: document.querySelector('#address-input'),
+  //   container: document.querySelector('#location'),
   // });
   // let location;
   return (
@@ -356,6 +358,7 @@ const Form = ({
             }}
             margin='normal'
           />
+
           {/* <TextField
             name='message'
             variant='outlined'
@@ -397,17 +400,26 @@ const Form = ({
             onAdd={(chip) => handleAddChip(chip)}
             onDelete={(chip) => handleDeleteChip(chip)}
         />*/}
-
-          {/*  <AlgoliaPlaces
-            placeholder='Location'
-            // defaultValue={location}
-            options={config}
-            onChange={(e) =>
-              e.preventDefault() &&
-              setPostData({ ...postData, location: e.suggestion.value })
-            }
-            style={{ height: '50px' }}
-          />*/}
+          <FormControl class='form-group d-lg-flex'>
+            <AlgoliaPlaces
+              placeholder='Location'
+              defaultValue={postData.location}
+              options={config}
+              onChange={(e) => setLocation(e.suggestion.value)}
+              style={{ height: '30px', marginTop: '10px' }}
+            />
+          </FormControl>
+          <input
+            label='Location'
+            name='location'
+            id='location'
+            ref={inputEl}
+            className={classes.location}
+            style={{ fontFamily: 'Montserrat' }}
+            placeholder='  Location*'
+            value={postData.location}
+            onChange={(e) => setPostData({ ...postData, location: location })}
+          />
           <TextField
             required={true}
             name='tags'

@@ -6,6 +6,7 @@ import {
   Avatar,
   Button,
   TextField,
+  InputBase,
 } from '@material-ui/core';
 import { Link, useHistory, useLocation } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
@@ -14,12 +15,13 @@ import ChipInput from 'material-ui-chip-input';
 import Form from '../Form/Form';
 import silkroadText from '../../images/silkroadLogo.png';
 import silkroadLogo from '../../images/imgLogo.png';
-
+// import { Autocomplete } from '@react-google-maps/api';
 import {
   getPosts,
   getPostsBySearch,
   getPostsByUser,
 } from '../../actions/posts';
+// import SearchIcon from '@material-ui/icons/Search';
 import * as actionType from '../../constants/actionTypes';
 import useStyles from './styles';
 
@@ -176,6 +178,7 @@ const Navbar = () => {
           },
         }}
       />
+
       <Button
         onClick={searchPost}
         className={classes.searchButton}

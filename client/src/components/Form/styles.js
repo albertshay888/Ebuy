@@ -16,7 +16,7 @@ export default makeStyles((theme) => ({
     fontSize: '20px',
     borderColor: 'black',
     borderWidth: '1px',
-
+    height: '500px',
     backgroundColor: 'transparent',
     position: 'center',
   },
@@ -52,9 +52,11 @@ export default makeStyles((theme) => ({
     fontFamily: 'Montserrat',
     icon: { UploadIcon },
     position: 'center',
+
     // display: 'none',
   },
   buttonSubmit: {
+    marginTop: 10,
     borderRadius: 10,
     marginBottom: 10,
     color: 'white',
@@ -63,7 +65,10 @@ export default makeStyles((theme) => ({
   },
 
   buttonClear: {
+    borderRadius: 10,
     marginBottom: 10,
+    marginTop: 10,
+
     color: 'white',
     backgroundColor: 'black',
     fontFamily: 'Montserrat',
@@ -84,22 +89,36 @@ export default makeStyles((theme) => ({
       color: 'black',
     },
   },
+  font: {
+    color: 'black',
+    fontFamily: 'Montserrat',
+  },
   labelFocused: {},
   inputLocation: {
     fontSize: 12,
     fontFamily: 'Montserrat',
+    borderColor: 'grey',
   },
-  inputPrice: {
+  price: {
     fontSize: 12,
-    height: '10px',
-  },
-  inputLocation: {
-    color: 'black',
-    fontSize: 12,
-
-    // display: 'flex',
     fontFamily: 'Montserrat',
-    // alignItems: 'center',
-    // justifyContent: 'center',
+  },
+  location: {
+    borderRadius: 5,
+    color: 'black',
+    borderColor: 'grey',
+    elevation: 13,
+    marginBottom: '10px',
+    height: '25px',
+    width: '90%',
+    marginTop: '5px',
+    fontSize: 12,
+    outlined: 'none',
+    display: 'flex',
+    fontFamily: 'Montserrat',
+  },
+  locationAlgolia: {
+    width: '90%',
+    fontSize: 12,
   },
 }));

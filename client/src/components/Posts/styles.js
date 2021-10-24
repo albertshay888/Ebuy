@@ -14,4 +14,8 @@ export default makeStyles((theme) => ({
   container: {
     // marginTop: '100px',
   },
+  nopost: {
+    textAlign: 'center',
+    fontFamily: 'Montserrat',
+  },
 }));

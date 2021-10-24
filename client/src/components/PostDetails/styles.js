@@ -81,11 +81,11 @@ export default makeStyles((theme) => ({
   },
   hostedBy: {
     fontFamily: 'Montserrat',
-    fontSize: '10px',
+    fontSize: '11px',
   },
   alsoLike: {
     fontFamily: 'Montserrat',
-    fontSize: '10px',
+    fontSize: '11px',
   },
   likeIcon: {
     marginTop: '0px',

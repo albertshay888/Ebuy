@@ -11,6 +11,7 @@ import {
 } from '@material-ui/core';
 import { useDispatch } from 'react-redux';
 import { useHistory, useLocation } from 'react-router-dom';
+import { getPlacesData, getWeatherData } from '../../api/travelAdvisorAPI';
 // import ChipInput from 'material-ui-chip-input';
 import {
   getPosts,
@@ -19,6 +20,7 @@ import {
 } from '../../actions/posts';
 import Pagination from '../Pagination';
 import Posts from '../Posts/Posts';
+import Map from '../Map/Map';
 import ChipInput from 'material-ui-chip-input';
 import Form from '../Form/Form';
 import ModalUnstyledDemo from '../Modal/Modal';
@@ -41,6 +43,71 @@ const Home = () => {
   const [tags, setTags] = useState([]);
   const [location, setLocation] = useState('');
   const myRef = useRef(null);
+
+  //with map feature
+  const [type, setType] = useState('restaurants');
+  const [rating, setRating] = useState('');
+
+  const [coords, setCoords] = useState({});
+  const [bounds, setBounds] = useState(null);
+
+  const [weatherData, setWeatherData] = useState([]);
+  const [filteredPlaces, setFilteredPlaces] = useState([]);
+  const [places, setPlaces] = useState([]);
+
+  const [autocomplete, setAutocomplete] = useState(null);
+  const [childClicked, setChildClicked] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    navigator.geolocation.getCurrentPosition(
+      ({ coords: { latitude, longitude } }) => {
+        setCoords({ lat: latitude, lng: longitude });
+      }
+    );
+  }, [coords]);
+
+  // // useEffect(() => {
+  // //   const filtered = places?.filter((place) => Number(place?.rating) > rating);
+
+  // //   setFilteredPlaces(filtered);
+  // // }, [rating]);
+
+  // useEffect(() => {
+  //   if (bounds) {
+  //     setIsLoading(true);
+
+  //     //     // getWeatherData(coords.lat, coords.lng).then((data) =>
+  //     //     //   setWeatherData(data)
+  //     //     // );
+
+  //     // getPlacesData(type, bounds.sw, bounds.ne).then((data) => {
+  //     //   setPlaces(
+  //     //     data?.filter((place) => place?.name && place?.num_reviews > 0)
+  //     //   ;
+  //     // console.log('dispatch: ', dispatch(getPosts()));
+
+  //     getPlacesData(type, bounds.sw, bounds.ne).then((data) => {
+  //       setPlaces(
+  //         data?.filter((place) => place?.name && place?.num_reviews > 0)
+  //       );
+  //       setFilteredPlaces([]);
+  //       setRating('');
+  //       setIsLoading(false);
+  //     });
+  //   }
+  // }, [bounds, type]);
+
+  // const onLoad = (autoC) => setAutocomplete(autoC);
+
+  // const onPlaceChanged = () => {
+  //   const lat = autocomplete.getPlace().geometry.location.lat();
+  //   const lng = autocomplete.getPlace().geometry.location.lng();
+
+  //   setCoords({ lat, lng });
+  // };
+
+  //end of map feature
   // useEffect(() => {
   //   dispatch(getPosts());
   // }, [currentId, dispatch]);
@@ -91,6 +158,7 @@ const Home = () => {
   // };
   return (
     <>
+      {/*hidden form*/}
       <div ref={myRef} className={showHideClassName}>
         <Grid item xs={16} sm={9} md={12} className={classes.centerForm}>
           <Form
@@ -115,8 +183,11 @@ const Home = () => {
           onClick={showModal}
         />
       </AppBar>
+
+      {/*post*/}
       <Grow in>
         <Container maxWidth='xl' position='center'>
+          {/*   <Grid container spacing={3} style={{ width: '100%' }}>*/}
           <Grid
             item
             container
@@ -126,57 +197,41 @@ const Home = () => {
             className={classes.gridContainer}
           >
             <Grid item xs={16} sm={9} md={12}>
+              {/*remove line below and uncomment the line above*/}
+              {/* <Grid item xs={12} md={6}>*/}
               <Posts setCurrentId={setCurrentId} showModal={showModal} />
             </Grid>
-
+            {/*remove map componement*/}
+            {/*map*/}
             {/*
-          <Grid item xs={12} sm={6} md={9}>
-            <AppBar
-              className={classes.appBarSearch}
-              position='static'
-              color='inherit'
+            <Grid
+              item
+              xs={12}
+              md={6}
+              style={{
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                flexDirection: 'column',
+                height: '100%',
+              }}
             >
-              <TextField
-                name='search'
-                variant='outlined'
-                label='Search listings'
-                onKeyPress={handleKeyPress}
-                fullWidth
-                value={search}
-                onChange={(e) => setSearch(e.target.value)}
-                InputProps={{
-                  style: { fontSize: 12 },
-                }}
-                InputLabelProps={{
-                  style: { fontSize: 12 },
-                }}
+              <Map
+              // setChildClicked={setChildClicked}
+              // setBounds={setBounds}
+              // setCoords={setCoords}
+              // coords={coords}
+              // places={filteredPlaces?.length ? filteredPlaces : places}
+              // weatherData={weatherData}
               />
-              <ChipInput
-                style={{ margin: '10px 0' }}
-                value={tags}
-                onAdd={(chip) => handleAddChip(chip)}
-                onDelete={(chip) => handleDeleteChip(chip)}
-                label='Search price'
-                variant='outlined'
-                InputProps={{
-                  style: { fontSize: 12 },
-                }}
-                InputLabelProps={{
-                  style: { fontSize: 12 },
-                }}
-              />
-              <Button
-                onClick={searchPost}
-                className={classes.searchButton}
-                color='primary'
-                variant='contained'
-              >
-                Search
-              </Button>
-            </AppBar>
-              </Grid> */}
+            </Grid>*/}
+            {/*map componement ends here*/}
+            {/*remove grid line below*/}
           </Grid>
+
           <br />
+
+          {/*//pagination*/}
           <Grid item xs={16} sm={9} md={12}>
             {!searchQuery && !tags.length && (
               <Pagination page={page} className={classes.pagination} />

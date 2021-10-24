@@ -26,6 +26,7 @@ const Post = ({ post, setCurrentId, showModal }) => {
   const history = useHistory();
 
   const Likes = () => {
+    console.log(post);
     if (post?.likes?.length > 0) {
       return post.likes.find(
         (like) => like === (user?.result?.googleId || user?.result?._id)
@@ -118,6 +119,14 @@ const Post = ({ post, setCurrentId, showModal }) => {
         component='h2'
       >
         {post.title}
+      </Typography>
+      <Typography
+        className={classes.location}
+        //gutterBottom
+        variant='h6'
+        component='h2'
+      >
+        {post.location}
       </Typography>
       <Typography className={classes.message}>{post.message}</Typography>
       <Typography

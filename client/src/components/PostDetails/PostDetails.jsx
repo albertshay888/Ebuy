@@ -210,6 +210,14 @@ const Post = () => {
           >
             {post.message}
           </Typography>
+          <Typography
+            gutterBottom
+            variant='body1'
+            component='p'
+            className={classes.postDetails}
+          >
+            {post.location}
+          </Typography>
           <Typography className={classes.hostedBy}>
             Hosted by: {post.name}
           </Typography>
