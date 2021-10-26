@@ -23,13 +23,15 @@ app.get('/', (req, res) => {
   res.send('API is running...');
 });
 
-const PORT = process.env.PORT || 5000;
+const port_number = process.env.PORT || 5000;
+
+app.listen(port_number, () =>
+  console.log(`Server is running on port ${port_number}`)
+);
 const CONNECTION_URL = process.env.MONGO_URI;
 
 //connect to mongodb db
 mongoose
   .connect(CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(() =>
-    app.listen(PORT, () => console.log(`Server is running on port ${PORT}`))
-  )
+  .then(() => console.log(`mongo_db connected`))
   .catch((error) => console.log(error.message));

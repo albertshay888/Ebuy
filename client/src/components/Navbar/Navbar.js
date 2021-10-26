@@ -119,6 +119,7 @@ const Navbar = () => {
         />
         <img
           className={classes.image}
+          component={Link}
           to='/'
           src={silkroadLogo}
           alt='icon'
