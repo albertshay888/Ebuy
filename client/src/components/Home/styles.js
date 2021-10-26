@@ -87,11 +87,15 @@ export default makeStyles((theme) => ({
   },
   addBar: {
     borderRadius: 15,
-    margin: '500px 0',
-
+    margin: '650px 0',
+    marginLeft: '100px',
     display: 'flex',
-
+    height: '50px',
+    width: '20%',
     flexDirection: 'row-reverse',
+    [theme.breakpoints.down('xs')]: {
+      flexDirection: 'row',
+    },
     justifyContent: 'space-between-evenly',
     alignItems: 'center',
     backgroundColor: 'transparent',

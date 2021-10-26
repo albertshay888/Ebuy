@@ -132,6 +132,7 @@ const Form = ({ showModal, currentId, setCurrentId }) => {
           <TextField
             required={true}
             name='title'
+            className={classes.titleField}
             variant='outlined'
             label='Title'
             fullWidth
@@ -155,7 +156,8 @@ const Form = ({ showModal, currentId, setCurrentId }) => {
             label='Description'
             fullWidth
             multiline
-            rows={4}
+            className={classes.textField}
+            rows={10}
             value={postData.message}
             onChange={(e) =>
               setPostData({ ...postData, message: e.target.value })
@@ -213,11 +215,10 @@ const Form = ({ showModal, currentId, setCurrentId }) => {
         />*/}
           <FormControl>
             <AlgoliaPlaces
-              placeholder='Location'
+              placeholder='Type location here*'
               defaultValue={location}
               options={config}
               onChange={(e) => setLocation(e.suggestion.value)}
-              style={{ height: '50px', width: '100%' }}
               className={classes.locationAlgolia}
             />
           </FormControl>
@@ -226,9 +227,9 @@ const Form = ({ showModal, currentId, setCurrentId }) => {
             name='location'
             className={classes.location}
             style={{ fontFamily: 'Montserrat' }}
-            placeholder='  Location*'
+            placeholder=' Click to confirm location*'
             value={postData.location}
-            onChange={(e) => setPostData({ ...postData, location: location })}
+            onClick={(e) => setPostData({ ...postData, location: location })}
           />
 
           <TextField
@@ -236,6 +237,7 @@ const Form = ({ showModal, currentId, setCurrentId }) => {
             name='tags'
             variant='outlined'
             label='Price'
+            className={classes.priceInput}
             fullWidth
             value={postData.tags}
             onChange={(e) =>
@@ -250,7 +252,7 @@ const Form = ({ showModal, currentId, setCurrentId }) => {
             }}
             margin='normal'
           />
-
+          <br />
           <div className={classes.fileInput}>
             <FileBase
               type='file'
