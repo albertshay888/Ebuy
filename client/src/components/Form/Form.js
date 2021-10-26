@@ -1,189 +1,12 @@
-// import React, { useState, useEffect } from 'react';
-// import { TextField, Button, Typography, Paper } from '@material-ui/core';
-// import { useDispatch, useSelector } from 'react-redux';
-// import FileBase from 'react-file-base64';
-// import { useHistory } from 'react-router-dom';
-// import { createPost, updatePost } from '../../actions/posts';
-// import { ToastContainer, toast } from 'react-toastify';
-// import 'react-toastify/dist/ReactToastify.css';
-// import UploadIcon from './UploadIcon';
-// import useStyles from './styles';
-
-// const Form = ({ currentId, setCurrentId }) => {
-//   const [postData, setPostData] = useState({
-//     title: '',
-//     message: '',
-//     tags: '',
-//     selectedFile: '',
-//   });
-
-//   const history = useHistory();
-//   const post = useSelector((state) =>
-//     currentId
-//       ? state.posts.posts.find((message) => message._id === currentId)
-//       : null
-//   );
-//   const dispatch = useDispatch();
-//   const classes = useStyles();
-//   const user = JSON.parse(localStorage.getItem('profile'));
-//   const notify = () => toast('Please select image');
-//   useEffect(() => {
-//     if (post) setPostData(post);
-//   }, [post]);
-
-//   const clear = () => {
-//     setCurrentId(0);
-//     setPostData({ title: '', message: '', tags: '', selectedFile: '' });
-//   };
-
-//   const handleSubmit = async (e) => {
-//     e.preventDefault();
-//     if (!postData.selectedFile) {
-//       notify();
-//       return;
-//     }
-//     if (currentId === 0) {
-//       dispatch(createPost({ ...postData, name: user?.result?.name }, history));
-
-//       clear();
-//     } else {
-//       dispatch(
-//         updatePost(currentId, { ...postData, name: user?.result?.name })
-//       );
-//       clear();
-//     }
-//   };
-
-//   if (!user?.result?.name) {
-//     return (
-//       <Paper className={classes.paper}>
-//         <Typography variant='h7' align='center'>
-//           Sign in to reserve and post listings.
-//         </Typography>
-//       </Paper>
-//     );
-//   }
-
-//   return (
-//     <Paper className={classes.paper} elevation={6}>
-//       <form
-//         autoComplete='off'
-//         className={`${classes.root} ${classes.form}`}
-//         onSubmit={handleSubmit}
-//       >
-//         <Typography variant='h7'>
-//           {currentId ? `Editing "${post?.title}"` : 'Post your listing'}
-//         </Typography>
-//         <TextField
-//           name='title'
-//           variant='outlined'
-//           label='Listing name'
-//           fullWidth
-//           value={postData.title}
-//           onChange={(e) => setPostData({ ...postData, title: e.target.value })}
-//           required={true}
-//           InputLabelProps={{
-//             style: { fontSize: 12 },
-//           }}
-//           InputProps={{
-//             style: { fontSize: 12 },
-//           }}
-//         />
-//         <TextField
-//           name='message'
-//           variant='outlined'
-//           label='Listing description'
-//           fullWidth
-//           multiline
-//           rows={8}
-//           value={postData.message}
-//           onChange={(e) =>
-//             setPostData({ ...postData, message: e.target.value })
-//           }
-//           required={true}
-//           InputLabelProps={{
-//             style: { fontSize: 12 },
-//           }}
-//           InputProps={{
-//             style: { fontSize: 12 },
-//           }}
-//         />
-//         <TextField
-//           name='tags'
-//           variant='outlined'
-//           label='Price'
-//           fullWidth
-//           value={postData.tags}
-//           onChange={(e) =>
-//             setPostData({ ...postData, tags: e.target.value.split(',') })
-//           }
-//           required={true}
-//           type='number'
-//           InputLabelProps={{
-//             style: { fontSize: 12 },
-//           }}
-//           InputProps={{
-//             style: { fontSize: 12 },
-//             fontFamily: 'Montserrat',
-//           }}
-//         />
-//         <div className={classes.fileInput} required={true}>
-//           <FileBase
-//             type='file'
-//             multiple={true}
-//             onDone={({ base64 }) =>
-//               setPostData({ ...postData, selectedFile: base64 })
-//             }
-//             value={postData.selectedFile}
-//             icon={<UploadIcon />}
-//             className={classes.fileInput}
-
-//             //required
-
-//             // name='requiredField'
-//             // ref={register({ required: true })}
-//           />
-//           {/*{errors.requiredField && <span>This field is required</span>}*/}
-//           {/* <input
-//             type='file'
-//             multiple={false}
-//             onDone={({ base64 }) =>
-//               setPostData({ ...postData, selectedFile: base64 })
-//             }
-//             required={true}
-//           />*/}
-//         </div>
-//         <Button
-//           className={classes.buttonSubmit}
-//           variant='contained'
-//           color='primary'
-//           size='large'
-//           type='submit'
-//           fullWidth
-//         >
-//           Submit
-//         </Button>
-//         <ToastContainer />
-//         <Button
-//           className={classes.buttonSubmit}
-//           variant='contained'
-//           color='secondary'
-//           size='small'
-//           onClick={clear}
-//           fullWidth
-//         >
-//           Clear
-//         </Button>
-//       </form>
-//     </Paper>
-//   );
-// };
-
-// export default Form;
-
 import React, { useState, useEffect, useRef } from 'react';
-import { FormControl } from '@mui/material';
-import { TextField, Button, Typography, Paper, Grid } from '@material-ui/core';
+import {
+  TextField,
+  Button,
+  Typography,
+  Paper,
+  Grid,
+  FormControl,
+} from '@material-ui/core';
 import { useDispatch, useSelector } from 'react-redux';
 import FileBase from 'react-file-base64';
 import FileUploadIcon from '@mui/icons-material/FileUpload';
@@ -203,13 +26,7 @@ const config = {
   language: 'en',
   countries: ['us'],
 };
-const Form = ({
-  showModal,
-  currentId,
-  setCurrentId,
-  // location,
-  // setLocation,
-}) => {
+const Form = ({ showModal, currentId, setCurrentId }) => {
   const [postData, setPostData] = useState({
     title: '',
     message: '',
@@ -228,7 +45,6 @@ const Form = ({
   const user = JSON.parse(localStorage.getItem('profile'));
   const notify = () => toast('Please select image');
   const history = useHistory();
-  const inputEl = useRef(null);
 
   const clear = () => {
     setCurrentId(0);
@@ -300,12 +116,6 @@ const Form = ({
     />
   </Grid>;
 
-  // const placesAutocomplete = places({
-  //   addId: process.env.REACT_APP_ALOGLIA_APP_ID,
-  //   apiKey: process.env.REACT_APP_ALOGLIA_API_KEY,
-  //   container: document.querySelector('#location'),
-  // });
-  // let location;
   return (
     <Grid item xs={12} sm={6} md={9}>
       <Paper className={classes.paper} elevation={10}>
@@ -358,7 +168,17 @@ const Form = ({
             }}
             margin='normal'
           />
-
+          <input
+            label='Location'
+            name='location'
+            className={classes.location}
+            style={{ fontFamily: 'Montserrat' }}
+            placeholder='  Location*'
+            value={postData.location}
+            onChange={(e) =>
+              setPostData({ ...postData, location: e.target.value })
+            }
+          />
           {/* <TextField
             name='message'
             variant='outlined'
@@ -400,25 +220,20 @@ const Form = ({
             onAdd={(chip) => handleAddChip(chip)}
             onDelete={(chip) => handleDeleteChip(chip)}
         />*/}
-          <FormControl class='form-group d-lg-flex'>
+          {/*  <FormControl>
             <AlgoliaPlaces
               placeholder='Location'
-              defaultValue={postData.location}
+              defaultValue={location}
               options={config}
               onChange={(e) => setLocation(e.suggestion.value)}
-              style={{ height: '30px', marginTop: '10px' }}
+              style={{ height: '50px' }}
             />
-          </FormControl>
+          </FormControl>*/}
           <input
-            label='Location'
-            name='location'
-            id='location'
-            ref={inputEl}
-            className={classes.location}
-            style={{ fontFamily: 'Montserrat' }}
-            placeholder='  Location*'
             value={postData.location}
             onChange={(e) => setPostData({ ...postData, location: location })}
+            type='address'
+            style={{ display: 'none' }}
           />
           <TextField
             required={true}
