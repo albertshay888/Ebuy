@@ -35,6 +35,7 @@ const Form = ({ showModal, currentId, setCurrentId }) => {
     selectedFile: '',
   });
   const [location, setLocation] = useState('');
+
   const post = useSelector((state) =>
     currentId
       ? state.posts.posts.find((message) => message._id === currentId)
@@ -168,17 +169,7 @@ const Form = ({ showModal, currentId, setCurrentId }) => {
             }}
             margin='normal'
           />
-          <input
-            label='Location'
-            name='location'
-            className={classes.location}
-            style={{ fontFamily: 'Montserrat' }}
-            placeholder='  Location*'
-            value={postData.location}
-            onChange={(e) =>
-              setPostData({ ...postData, location: e.target.value })
-            }
-          />
+
           {/* <TextField
             name='message'
             variant='outlined'
@@ -220,21 +211,26 @@ const Form = ({ showModal, currentId, setCurrentId }) => {
             onAdd={(chip) => handleAddChip(chip)}
             onDelete={(chip) => handleDeleteChip(chip)}
         />*/}
-          {/*  <FormControl>
+          <FormControl>
             <AlgoliaPlaces
               placeholder='Location'
               defaultValue={location}
               options={config}
               onChange={(e) => setLocation(e.suggestion.value)}
-              style={{ height: '50px' }}
+              style={{ height: '50px', width: '100%' }}
+              className={classes.locationAlgolia}
             />
-          </FormControl>*/}
+          </FormControl>
           <input
+            label='Location'
+            name='location'
+            className={classes.location}
+            style={{ fontFamily: 'Montserrat' }}
+            placeholder='  Location*'
             value={postData.location}
             onChange={(e) => setPostData({ ...postData, location: location })}
-            type='address'
-            style={{ display: 'none' }}
           />
+
           <TextField
             required={true}
             name='tags'
@@ -264,7 +260,6 @@ const Form = ({ showModal, currentId, setCurrentId }) => {
                 setPostData({ ...postData, selectedFile: base64 })
               }
               label={UploadIcon}
-              style={{ fontFamily: 'Montserrat', position: 'center' }}
             />
           </div>
           <Button
@@ -273,7 +268,6 @@ const Form = ({ showModal, currentId, setCurrentId }) => {
             color='primary'
             size='large'
             type='submit'
-            fullWidth
           >
             Submit
           </Button>

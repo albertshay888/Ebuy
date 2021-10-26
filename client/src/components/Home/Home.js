@@ -9,7 +9,7 @@ import {
   TextField,
   Button,
 } from '@material-ui/core';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useLocation } from 'react-router-dom';
 import { getPlacesData, getWeatherData } from '../../api/travelAdvisorAPI';
 // import ChipInput from 'material-ui-chip-input';
@@ -44,6 +44,7 @@ const Home = () => {
   const [tags, setTags] = useState([]);
   const [location, setLocation] = useState('');
   const myRef = useRef(null);
+  const { posts, isLoading } = useSelector((state) => state.posts);
 
   //end of map feature
   // useEffect(() => {
@@ -154,6 +155,12 @@ const Home = () => {
                 height: '100%',
               }}
             >
+            {posts?.map((post) => (
+        
+ 
+          <Map post={post} />
+          </Grid>
+        ))
               <Map
                 setChildClicked={setChildClicked}
                 setBounds={setBounds}

@@ -48,20 +48,24 @@ export default makeStyles((theme) => ({
   fileInput: {
     width: '100%',
     margin: '10px 0',
+    marginTop: '40px',
     color: 'black',
     fontFamily: 'Montserrat',
     icon: { UploadIcon },
     position: 'center',
+    cursor: 'pointer',
 
     // display: 'none',
   },
   buttonSubmit: {
-    marginTop: 10,
+    marginTop: 5,
     borderRadius: 10,
     marginBottom: 10,
     color: 'white',
     backgroundColor: 'black',
     fontFamily: 'Montserrat',
+    height: '60px',
+    width: '100px',
   },
 
   buttonClear: {

@@ -1,5 +1,5 @@
 node_modules
 package-lock.json
 build
-silkroad_key_pair.pem
+silk_key_pair.pem
 **/.env
