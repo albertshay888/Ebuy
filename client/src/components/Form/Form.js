@@ -91,7 +91,7 @@ const Form = ({ showModal, currentId, setCurrentId }) => {
 
   if (!user?.result?.name) {
     return (
-      <Paper className={classes.paper} elevation={0}>
+      <Paper className={classes.paperSmall} elevation={0}>
         <Typography variant='h7' align='center' component={Link} to='/auth'>
           Sign in to buy & sell products
         </Typography>
@@ -127,7 +127,7 @@ const Form = ({ showModal, currentId, setCurrentId }) => {
           onSubmit={handleSubmit}
         >
           <Typography variant='h7'>
-            {currentId ? `Editing "${post?.title}"` : 'Add new product'}
+            {currentId ? `Editing product` : 'Add new product'}
           </Typography>
           <TextField
             required={true}

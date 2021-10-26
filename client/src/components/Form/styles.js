@@ -25,6 +25,23 @@ export default makeStyles((theme) => ({
     backgroundColor: 'transparent',
     position: 'center',
   },
+  paperSmall: {
+    borderRadius: 30,
+    padding: theme.spacing(2),
+    color: 'black',
+    fontFamily: 'Montserrat',
+    fontSize: '20px',
+    borderColor: 'black',
+    borderWidth: '1px',
+    height: '50px',
+    width: '300px',
+    [theme.breakpoints.up('lg')]: {
+      width: '100%',
+    },
+
+    backgroundColor: 'transparent',
+    position: 'center',
+  },
   form: {
     display: 'flex',
     flexWrap: 'wrap',
