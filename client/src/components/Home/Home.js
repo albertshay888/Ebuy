@@ -20,7 +20,7 @@ import {
 } from '../../actions/posts';
 import Pagination from '../Pagination';
 import Posts from '../Posts/Posts';
-import Map from '../Map/Map';
+//import Map from '../Map/Map';
 import ChipInput from 'material-ui-chip-input';
 import Form from '../Form/Form';
 import ModalUnstyledDemo from '../Modal/Modal';

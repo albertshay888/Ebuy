@@ -7,7 +7,7 @@ import path from 'path';
 import postRoutes from './routes/posts.js';
 import userRouter from './routes/user.js';
 dotenv.config();
-
+const app = express();
 app.use(cors());
 //localhost:5000/posts
 
@@ -24,8 +24,6 @@ app.get('/', (req, res) => {
 
 const PORT = process.env.PORT || 5000;
 
-const app = express();
-
 app.set('port', PORT);
 
 // app.listen(process.env.PORT || 5000, function () {
@@ -35,7 +33,7 @@ app.set('port', PORT);
 //     app.settings.env
 //   );
 // });
-app.listen(PORT, () => console.log(`Server is running on port ${port_number}`));
+app.listen(PORT, () => console.log(`Server is running on port ${PORT}`));
 const CONNECTION_URL = process.env.MONGO_URI;
 
 //connect to mongodb db
