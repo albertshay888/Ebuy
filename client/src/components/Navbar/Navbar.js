@@ -108,7 +108,7 @@ const Navbar = () => {
 
   return (
     <AppBar className={classes.appBar} position='sticky' color='inherit'>
-      <Link to='/' className={classes.brandContainer}>
+      {/*  <Link to='/' className={classes.brandContainer}>
         <img
           className={classes.text}
           component={Link}
@@ -125,7 +125,7 @@ const Navbar = () => {
           alt='icon'
           height='40px'
         />
-      </Link>
+      </Link>*/}
       <TextField
         name='search'
         variant='outlined'
