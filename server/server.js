@@ -7,7 +7,6 @@ import path from 'path';
 import postRoutes from './routes/posts.js';
 import userRouter from './routes/user.js';
 dotenv.config();
-const app = express();
 
 app.use(cors());
 //localhost:5000/posts
@@ -23,11 +22,13 @@ app.get('/', (req, res) => {
   res.send('API is running...');
 });
 
-const port_number = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5000;
 
-app.listen(port_number, () =>
-  console.log(`Server is running on port ${port_number}`)
-);
+const app = express();
+
+app.set('port', PORT);
+
+app.listen(PORT, () => console.log(`Server is running on port ${port_number}`));
 const CONNECTION_URL = process.env.MONGO_URI;
 
 //connect to mongodb db
