@@ -28,13 +28,13 @@ const app = express();
 
 app.set('port', PORT);
 
-app.listen(process.env.PORT || 5000, function () {
-  console.log(
-    'Express server listening on port %d in %s mode',
-    this.address().port,
-    app.settings.env
-  );
-});
+// app.listen(process.env.PORT || 5000, function () {
+//   console.log(
+//     'Express server listening on port %d in %s mode',
+//     this.address().port,
+//     app.settings.env
+//   );
+// });
 app.listen(PORT, () => console.log(`Server is running on port ${port_number}`));
 const CONNECTION_URL = process.env.MONGO_URI;
 
