@@ -4,9 +4,10 @@ import mongoose from 'mongoose';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import path from 'path';
+import mongoSanitize from 'express-mongo-sanitize';
 import postRoutes from './routes/posts.js';
 import userRouter from './routes/user.js';
-
+const __dirname = path.resolve();
 //enable to red .env files
 dotenv.config();
 
