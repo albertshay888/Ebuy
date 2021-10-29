@@ -69,7 +69,8 @@ export default makeStyles((theme) => ({
   },
   fileInput: {
     margin: '10px 0',
-    marginTop: 20,
+    marginTop: 0,
+
     color: 'black',
     fontFamily: 'Montserrat',
     icon: { UploadIcon },
@@ -82,6 +83,7 @@ export default makeStyles((theme) => ({
     },
     // display: 'none',
   },
+
   tittleField: {
     borderColor: 'black',
   },
@@ -89,9 +91,10 @@ export default makeStyles((theme) => ({
     borderColor: 'black',
   },
   buttonSubmit: {
-    marginTop: 5,
+    marginTop: 0,
+
     borderRadius: 10,
-    marginBottom: 10,
+    marginBottom: 20,
     marginRight: '35px',
     color: 'white',
     backgroundColor: 'black',
@@ -99,7 +102,13 @@ export default makeStyles((theme) => ({
     height: '40px',
     width: '100px',
     [theme.breakpoints.down('lg')]: {
-      marginTop: 50,
+      marginTop: 40,
+      marginBottom: 20,
+    },
+    [theme.breakpoints.up('xl')]: {
+      marginTop: 10,
+
+      width: '60%',
     },
   },
 

@@ -1,5 +1,5 @@
 Arguments: 
-  /usr/local/bin/node /Users/albertshay/.yarn/bin/yarn.js add @mui/material/utils
+  /usr/local/bin/node /Users/albertshay/.yarn/bin/yarn.js add react
 
 PATH: 
   /Users/albertshay/.yarn/bin:/Users/albertshay/.config/yarn/global/node_modules/.bin:/usr/local/opt/openssl@1.1/bin:/home/cassio/mongodb/mongodb-linux-x86_64-2.4.9/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin:/Users/albertshay/.yarn/bin:/Users/albertshay/.config/yarn/global/node_modules/.bin:/usr/local/opt/openssl@1.1/bin:/home/cassio/mongodb/mongodb-linux-x86_64-2.4.9/bin
@@ -14,8 +14,8 @@ Platform:
   darwin x64
 
 Trace: 
-  Error: https://registry.yarnpkg.com/@mui%2fmaterial/utils: Request "https://registry.yarnpkg.com/@mui%2fmaterial/utils" returned a 405
-      at Request.params.callback [as _callback] (/Users/albertshay/.yarn/lib/cli.js:67038:18)
+  Error: https://registry.yarnpkg.com/@babel%2fpreset-rnpm%20eact: Not found
+      at Request.params.callback [as _callback] (/Users/albertshay/.yarn/lib/cli.js:67029:18)
       at Request.self.callback (/Users/albertshay/.yarn/lib/cli.js:140881:22)
       at Request.emit (node:events:365:28)
       at Request.<anonymous> (/Users/albertshay/.yarn/lib/cli.js:141853:10)
@@ -30,6 +30,7 @@ npm manifest:
   {
     "name": "client",
     "version": "0.1.0",
+  
     "private": true,
     "proxy": "https://localhost:5000",
     "dependencies": {
@@ -52,6 +53,7 @@ npm manifest:
       "jwt-decode": "^3.1.2",
       "material-ui-chip-input": "^1.1.0",
       "moment": "^2.29.1",
+      "next": "^12.0.1",
       "places.js": "^1.19.0",
       "react": "^17.0.2",
       "react-dom": "^17.0.2",
@@ -89,6 +91,17 @@ npm manifest:
         "last 1 firefox version",
         "last 1 safari version"
       ]
+    },
+    "devDependencies": {
+      "@babel/core": "^7.15.8",
+      "@babel/preset-env": "^7.15.8",
+      "@babel/preset-rnpm eact": "^7.14.5",
+      "babel-loader": "^8.1.0",
+      "html-webpack-plugin": "^4.5.0",
+      "path": "^0.12.7",
+      "webpack": "^4.sudo44.2",
+      "webpack-cli": "^4.9.1",
+      "webpack-dev-server": "^3.11.1"
     }
   }
 

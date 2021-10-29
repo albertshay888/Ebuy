@@ -1,4 +1,5 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useMemo } from 'react';
+import { Dashboard } from '@uppy/react';
 import {
   TextField,
   Button,
@@ -16,6 +17,7 @@ import AlgoliaPlaces from 'algolia-places-react';
 import { createPost, updatePost } from '../../actions/posts';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+// import Uploader from './Uploader';
 import places from 'places.js';
 import UploadIcon from './UploadIcon';
 import useStyles from './styles';
@@ -109,6 +111,7 @@ const Form = ({ showModal, currentId, setCurrentId }) => {
       tags: postData.tags.filter((tag) => tag !== chipToDelete),
     });
   };
+
   <Grid item xs={16} sm={9} md={12}>
     <Form
       currentId={currentId}
@@ -252,6 +255,7 @@ const Form = ({ showModal, currentId, setCurrentId }) => {
             }}
             margin='normal'
           />
+
           <br />
           <div className={classes.fileInput}>
             <FileBase
@@ -264,6 +268,7 @@ const Form = ({ showModal, currentId, setCurrentId }) => {
               label={UploadIcon}
             />
           </div>
+
           <Button
             className={classes.buttonSubmit}
             variant='contained'
