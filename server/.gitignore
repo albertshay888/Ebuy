@@ -1,3 +1,4 @@
-./node_modules 
+/node_modules
+node_modules 
 .env 
 sr2_key_pair.pem
