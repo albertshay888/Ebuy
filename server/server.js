@@ -15,8 +15,9 @@ dotenv.config();
 const app = express();
 
 //express port
-const PORT = process.env.PORT || 5000;
-
+// const port = process.env.PORT || 8080;
+const port =
+  process.env.NODE_ENV === 'production' ? process.env.PORT || 80 : 4000;
 //mongo port
 const CONNECTION_URL = process.env.MONGO_URI;
 
@@ -25,7 +26,7 @@ app.use(cors());
 //localhost:5000/posts
 
 //serve static files
-app.use(express.static(path.join(__dirname, 'client', 'build')));
+// app.use(express.static(path.join(__dirname, 'client', 'build')));
 
 // Sanitize against NoSQL query injections
 app.use(mongoSanitize());
@@ -39,9 +40,14 @@ app.use('/posts', postRoutes);
 app.use('/user', userRouter);
 
 // Redirect back to index.html if urls do not match
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
-});
+// app.get('*', (req, res) => {
+//   res.sendFile(__dirname + '/build' + '/index.html');
+// });
+
+// app.get("*", function(req, res) {
+//   res.sendFile(path.resolve(__dirname, 'build', 'index.html'));
+//   res.end();
+// });
 
 //connect to mongodb db
 mongoose
@@ -50,4 +56,4 @@ mongoose
   .catch((error) => console.log(error.message));
 
 //listen to port
-app.listen(PORT, () => console.log(`Server is running on port ${PORT}`));
+app.listen(port, () => console.log(`Server is running on port ${port}`));
