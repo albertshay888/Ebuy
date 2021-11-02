@@ -18,7 +18,7 @@ import {
   getPostsBySearch,
   getPostsByUser,
 } from '../../actions/posts';
-import Pagination from '../Pagination';
+import Pagination from '../Pagination.jsx';
 import Posts from '../Posts/Posts';
 //import Map from '../Map/Map';
 import ChipInput from 'material-ui-chip-input';

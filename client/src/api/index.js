@@ -2,7 +2,7 @@ import axios from 'axios';
 import config from 'config';
 
 const API = axios.create({
-  baseURL: `${config.apiUrl}`,
+  baseURL: config.apiUrl,
 });
 
 API.interceptors.request.use((req) => {

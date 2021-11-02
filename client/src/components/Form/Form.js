@@ -15,8 +15,8 @@ import { useHistory, Link } from 'react-router-dom';
 import ChipInput from 'material-ui-chip-input';
 import AlgoliaPlaces from 'algolia-places-react';
 import { createPost, updatePost } from '../../actions/posts';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+//import { ToastContainer, toast } from 'react-toastify';
+//import 'react-toastify/dist/ReactToastify.css';
 // import Uploader from './Uploader';
 import places from 'places.js';
 import UploadIcon from './UploadIcon';
@@ -46,7 +46,7 @@ const Form = ({ showModal, currentId, setCurrentId }) => {
   const dispatch = useDispatch();
   const classes = useStyles();
   const user = JSON.parse(localStorage.getItem('profile'));
-  const notify = () => toast('Please select image');
+  //const notify = () => toast('Please select image');
   const history = useHistory();
 
   const clear = () => {
@@ -278,7 +278,7 @@ const Form = ({ showModal, currentId, setCurrentId }) => {
           >
             Submit
           </Button>
-          <ToastContainer />
+          {/*   <ToastContainer />*/}
           {/*  <Button
             variant='contained'
             color='secondary'
