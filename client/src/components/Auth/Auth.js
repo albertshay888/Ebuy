@@ -80,7 +80,7 @@ const SignUp = () => {
     <Container component='main' maxWidth='xs'>
       <Paper className={classes.paper} elevation={3}>
         <Typography className={classes.header} component='h1' variant='h5'>
-          {isSignup ? 'Sign up' : 'Sign in'}
+          {isSignup ? 'Sign up' : 'Log in'}
         </Typography>
         <form className={classes.form} onSubmit={handleSubmit}>
           <Grid container spacing={2}>
@@ -148,7 +148,7 @@ const SignUp = () => {
             variant='contained'
             className={classes.submit}
           >
-            {isSignup ? 'Sign Up' : 'Sign In'}
+            {isSignup ? 'Sign up' : 'Log in'}
           </Button>
           {/* <GoogleLogin
             clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
@@ -180,7 +180,7 @@ const SignUp = () => {
                     component={Link}
                     to='/auth'
                   >
-                    Already have an account? Sign in
+                    Already have an account? Log in
                   </Typography>
                 ) : (
                   <Typography

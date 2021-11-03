@@ -116,10 +116,14 @@ export default makeStyles((theme) => ({
     display: 'flex',
     // position: 'absolute',
     // float: 'right',
-
-    width: '73px',
+    height: '50%',
+    width: '20%',
+    // [theme.breakpoints.down('xs')]: {
+    //   width: '60%',
+    // },
+    // width: '73px',
     fontWeight: '900',
-    justifyContent: 'center',
+    // justifyContent: 'center',
   },
   logo: {
     display: 'flex',
@@ -143,7 +147,7 @@ export default makeStyles((theme) => ({
     display: 'flex',
     position: 'relative',
     fontFamily: 'Montserrat',
-    width: '9%',
+    width: '8%',
     height: '50%',
     // alignItems: 'center',
     // alignText: 'center',

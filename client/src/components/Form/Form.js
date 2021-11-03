@@ -95,7 +95,7 @@ const Form = ({ showModal, currentId, setCurrentId }) => {
     return (
       <Paper className={classes.paperSmall} elevation={0}>
         <Typography variant='h7' align='center' component={Link} to='/auth'>
-          Sign in to buy & sell products
+          Log in or sign up to post{' '}
         </Typography>
       </Paper>
     );
@@ -121,61 +121,62 @@ const Form = ({ showModal, currentId, setCurrentId }) => {
   </Grid>;
 
   return (
-    <Grid item xs={12} sm={6} md={9}>
-      <Paper className={classes.paper} elevation={10}>
-        <form
-          autoComplete='off'
-          noValidate
-          className={`${classes.root} ${classes.form}`}
-          onSubmit={handleSubmit}
-        >
-          <Typography variant='h7'>
-            {currentId ? `Editing product` : 'Add new product'}
-          </Typography>
-          <TextField
-            required={true}
-            name='title'
-            className={classes.titleField}
-            variant='outlined'
-            label='Title'
-            fullWidth
-            value={postData.title}
-            onChange={(e) =>
-              setPostData({ ...postData, title: e.target.value })
-            }
-            InputProps={{ classes: { root: classes.inputRoot } }}
-            InputLabelProps={{
-              classes: {
-                root: classes.labelRoot,
-                focused: classes.labelFocused,
-              },
-            }}
-            margin='normal'
-          />
-          <TextField
-            required={true}
-            name='message'
-            variant='outlined'
-            label='Description'
-            fullWidth
-            multiline
-            className={classes.textField}
-            rows={10}
-            value={postData.message}
-            onChange={(e) =>
-              setPostData({ ...postData, message: e.target.value })
-            }
-            InputProps={{ classes: { root: classes.inputRoot } }}
-            InputLabelProps={{
-              classes: {
-                root: classes.labelRoot,
-                focused: classes.labelFocused,
-              },
-            }}
-            margin='normal'
-          />
+    <>
+      <Grid item xs={12} sm={6} md={9} className={classes.paperwrapper}>
+        <Paper className={classes.paper} elevation={10}>
+          <form
+            autoComplete='off'
+            noValidate
+            className={`${classes.root} ${classes.form}`}
+            onSubmit={handleSubmit}
+          >
+            <Typography variant='h7'>
+              {currentId ? `Editing post` : 'Add new post'}
+            </Typography>
+            <TextField
+              required={true}
+              name='title'
+              className={classes.titleField}
+              variant='outlined'
+              label='Title'
+              fullWidth
+              value={postData.title}
+              onChange={(e) =>
+                setPostData({ ...postData, title: e.target.value })
+              }
+              InputProps={{ classes: { root: classes.inputRoot } }}
+              InputLabelProps={{
+                classes: {
+                  root: classes.labelRoot,
+                  focused: classes.labelFocused,
+                },
+              }}
+              margin='normal'
+            />
+            <TextField
+              required={true}
+              name='message'
+              variant='outlined'
+              label='Description'
+              fullWidth
+              multiline
+              className={classes.textField}
+              rows={10}
+              value={postData.message}
+              onChange={(e) =>
+                setPostData({ ...postData, message: e.target.value })
+              }
+              InputProps={{ classes: { root: classes.inputRoot } }}
+              InputLabelProps={{
+                classes: {
+                  root: classes.labelRoot,
+                  focused: classes.labelFocused,
+                },
+              }}
+              margin='normal'
+            />
 
-          {/* <TextField
+            {/* <TextField
             name='message'
             variant='outlined'
             label='location'
@@ -207,7 +208,7 @@ const Form = ({ showModal, currentId, setCurrentId }) => {
             }}
             margin='normal'
           /> */}
-          {/*   <ChipInput
+            {/*   <ChipInput
             name='tags'
             variant='outlined'
             label='Price'
@@ -216,70 +217,70 @@ const Form = ({ showModal, currentId, setCurrentId }) => {
             onAdd={(chip) => handleAddChip(chip)}
             onDelete={(chip) => handleDeleteChip(chip)}
         />*/}
-          <FormControl>
-            <AlgoliaPlaces
-              placeholder='Type location here*'
-              defaultValue={location}
-              options={config}
-              onChange={(e) => setLocation(e.suggestion.value)}
-              className={classes.locationAlgolia}
+            <FormControl>
+              <AlgoliaPlaces
+                placeholder='Type location here*'
+                defaultValue={location}
+                options={config}
+                onChange={(e) => setLocation(e.suggestion.value)}
+                className={classes.locationAlgolia}
+              />
+            </FormControl>
+            <input
+              label='Location'
+              name='location'
+              className={classes.location}
+              style={{ fontFamily: 'Montserrat' }}
+              placeholder=' Click to confirm location*'
+              value={postData.location}
+              onClick={(e) => setPostData({ ...postData, location: location })}
             />
-          </FormControl>
-          <input
-            label='Location'
-            name='location'
-            className={classes.location}
-            style={{ fontFamily: 'Montserrat' }}
-            placeholder=' Click to confirm location*'
-            value={postData.location}
-            onClick={(e) => setPostData({ ...postData, location: location })}
-          />
 
-          <TextField
-            required={true}
-            name='tags'
-            variant='outlined'
-            label='Price'
-            className={classes.priceInput}
-            fullWidth
-            value={postData.tags}
-            onChange={(e) =>
-              setPostData({ ...postData, tags: e.target.value.split(',') })
-            }
-            InputProps={{ classes: { root: classes.inputRoot } }}
-            InputLabelProps={{
-              classes: {
-                root: classes.labelRoot,
-                focused: classes.labelFocused,
-              },
-            }}
-            margin='normal'
-          />
-
-          <br />
-          <div className={classes.fileInput}>
-            <FileBase
-              type='file'
-              className={classes.fileInput}
-              multiple={false}
-              onDone={({ base64 }) =>
-                setPostData({ ...postData, selectedFile: base64 })
+            <TextField
+              required={true}
+              name='tags'
+              variant='outlined'
+              label='Price'
+              className={classes.priceInput}
+              fullWidth
+              value={postData.tags}
+              onChange={(e) =>
+                setPostData({ ...postData, tags: e.target.value.split(',') })
               }
-              label={UploadIcon}
+              InputProps={{ classes: { root: classes.inputRoot } }}
+              InputLabelProps={{
+                classes: {
+                  root: classes.labelRoot,
+                  focused: classes.labelFocused,
+                },
+              }}
+              margin='normal'
             />
-          </div>
 
-          <Button
-            className={classes.buttonSubmit}
-            variant='contained'
-            color='primary'
-            size='large'
-            type='submit'
-          >
-            Submit
-          </Button>
-          {/*   <ToastContainer />*/}
-          {/*  <Button
+            <br />
+            <div className={classes.fileInput}>
+              <FileBase
+                type='file'
+                className={classes.fileInput}
+                multiple={false}
+                onDone={({ base64 }) =>
+                  setPostData({ ...postData, selectedFile: base64 })
+                }
+                label={UploadIcon}
+              />
+            </div>
+
+            <Button
+              className={classes.buttonSubmit}
+              variant='contained'
+              color='primary'
+              size='large'
+              type='submit'
+            >
+              Submit
+            </Button>
+            {/*   <ToastContainer />*/}
+            {/*  <Button
             variant='contained'
             color='secondary'
             size='small'
@@ -288,10 +289,11 @@ const Form = ({ showModal, currentId, setCurrentId }) => {
           >
             Clear
         </Button>*/}
-        </form>
-      </Paper>
+          </form>
+        </Paper>
+      </Grid>
       <br />
-    </Grid>
+    </>
   );
 };
 

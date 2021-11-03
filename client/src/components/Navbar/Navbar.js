@@ -130,7 +130,7 @@ const Navbar = () => {
         name='search'
         variant='outlined'
         className={classes.searchinput}
-        label={`Search products by name or...`}
+        label={`Search by name...`}
         onKeyPress={handleKeyPress}
         size={`small`}
         fontFamily={`Montserrat`}
@@ -216,7 +216,7 @@ const Navbar = () => {
             //   onClick={login}
             variant='contained'
           >
-            Sign In
+            Login
           </Button>
         )}
       </Toolbar>

@@ -8,6 +8,11 @@ export default makeStyles((theme) => ({
       fontFamily: 'Montserrat',
     },
   },
+  paperwrapper: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
   paper: {
     borderRadius: 30,
     padding: theme.spacing(2),

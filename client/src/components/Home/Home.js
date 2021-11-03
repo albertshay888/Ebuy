@@ -109,6 +109,7 @@ const Home = () => {
           />
         </Grid>
       </div>
+      <br />
       <AppBar
         className={classes.addBar}
         position='fixed'
