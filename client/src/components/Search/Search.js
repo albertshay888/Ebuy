@@ -2,15 +2,6 @@ import React, { useState, useEffect } from 'react';
 // import { render } from "react-dom";
 import axios from 'axios';
 
-// A token is required for running ebay calls.
-// To get a token:
-// Follow this URL: https://cp-oauth.herokuapp.com/ebay/token
-// Sign -in with the following credentials:
-// Email: challenger2@ebaychallenge.com
-// Password: 1victory!
-// Copy the token into the const token (line 35)
-// Careful: the token lifespan is limited to a couple of hours, so if token is invalid you'll have to renew it.
-
 const Search = () => {
   const [results, setResults] = useState([]);
   const [inputValue, setInputValue] = useState('');

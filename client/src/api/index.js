@@ -24,11 +24,7 @@ export const fetchPostsBySearch = (searchQuery) =>
   );
 export const fetchPostsByUser = (user) =>
   API.get(`/profile/user?user:id=${user.results._id}`);
-// export const fetchPostsByLikes = (user) =>
-//   API.get(
-//     `/posts/user?user=${user}/likes
-//     }`
-//   );
+
 export const getPost = (id) => API.patch(`/posts/${id}/likePost`);
 export const createPost = (newPost) => API.post('/posts', newPost);
 export const likePost = (id) => API.patch(`/posts/${id}/likePost`);

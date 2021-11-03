@@ -3,8 +3,7 @@ export const UPDATE = 'UPDATE';
 export const DELETE = 'DELETE';
 export const FETCH_ALL = 'FETCH_ALL';
 export const FETCH_BY_SEARCH = 'FETCH_BY_SEARCH';
-// export const FETCH_BY_LIKES = 'FETCH_BY_LIKES';
-// export const FETCH_BY_USER = 'FETCH_BY_CREATED';
+
 export const FETCH_POST = 'FETCH_POST';
 export const LIKE = 'LIKE';
 export const COMMENT = 'COMMENT';
@@ -13,4 +12,3 @@ export const START_LOADING = 'START_LOADING';
 export const PROFILE = 'PROFILE';
 export const AUTH = 'AUTH';
 export const LOGOUT = 'LOGOUT';
-// export const LOGIN = 'LOGIN';

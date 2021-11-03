@@ -10,8 +10,6 @@ import {
   LIKE,
   COMMENT,
   PROFILE,
-  FETCH_BY_USER,
-  FETCH_BY_LIKES,
 } from '../constants/actionTypes';
 import * as api from '../api/index.js';
 
@@ -44,19 +42,6 @@ export const getPosts = (page) => async (dispatch) => {
   }
 };
 
-// export const getPostsByLikes = (likes) => async (dispatch) => {
-//   try {
-//     dispatch({ type: START_LOADING });
-//     const {
-//       data: { data },
-//     } = await api.fetchPostsByLikes(likes);
-//     console.log(data);
-//     dispatch({ type: FETCH_BY_LIKES, payload: { data } });
-//     dispatch({ type: END_LOADING });
-//   } catch (error) {
-//     console.log(error);
-//   }
-// };
 export const getPostsByUser = (user) => async (dispatch) => {
   try {
     dispatch({ type: START_LOADING });

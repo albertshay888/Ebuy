@@ -176,47 +176,6 @@ const Form = ({ showModal, currentId, setCurrentId }) => {
               margin='normal'
             />
 
-            {/* <TextField
-            name='message'
-            variant='outlined'
-            label='location'
-            fullWidth
-            option={config}
-            rows={1}
-            value={postData.message}
-            onChange={(e) => {
-              if (e.target.value === '') {
-                navigator.geolocation.getCurrentPosition(function (position) {
-                  console.log('Latitude is :', position.coords.latitude);
-                  console.log('Longitude is :', position.coords.longitude);
-                  location = position;
-                });
-              }
-              setPostData({
-                ...postData,
-                location: location
-                  ? { ...postData, location: location }
-                  : { ...postData, location: e.target.value },
-              });
-            }}
-            InputProps={{ classes: { root: classes.inputRoot } }}
-            InputLabelProps={{
-              classes: {
-                root: classes.labelRoot,
-                focused: classes.labelFocused,
-              },
-            }}
-            margin='normal'
-          /> */}
-            {/*   <ChipInput
-            name='tags'
-            variant='outlined'
-            label='Price'
-            fullWidth
-            value={postData.tags}
-            onAdd={(chip) => handleAddChip(chip)}
-            onDelete={(chip) => handleDeleteChip(chip)}
-        />*/}
             <FormControl>
               <AlgoliaPlaces
                 placeholder='Type location here*'
