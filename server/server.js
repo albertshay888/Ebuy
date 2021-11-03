@@ -7,7 +7,7 @@ import path from 'path';
 import mongoSanitize from 'express-mongo-sanitize';
 import postRoutes from './routes/posts.js';
 import userRouter from './routes/user.js';
-const __dirname = path.resolve();
+// const __dirname = path.resolve();
 //enable to red .env files
 dotenv.config();
 
@@ -16,8 +16,7 @@ const app = express();
 
 //express port
 // const port = process.env.PORT || 8080;
-const port =
-  process.env.NODE_ENV === 'production' ? process.env.PORT || 80 : 4000;
+const port = process.env.PORT || 4000;
 //mongo port
 const CONNECTION_URL = process.env.MONGO_URI;
 
@@ -38,6 +37,9 @@ app.use(bodyParser.urlencoded({ limit: '30mb', extended: true }));
 // Setting up a route for our API
 app.use('/posts', postRoutes);
 app.use('/user', userRouter);
+app.get('/', (req, res) => {
+  res.send('Hello to Silkroad API');
+});
 
 // Redirect back to index.html if urls do not match
 // app.get('*', (req, res) => {
