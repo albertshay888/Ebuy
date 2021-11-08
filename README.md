@@ -1,5 +1,5 @@
 ## Introduction:
-Silkroad is a social e-commerce marketplace where sellers can post products/listings for sale and interested buyers can message postings to buy or inquire.
+Silkroad is a full-stack web application, a social marketplace where users can post products/listings to sell and message postings to buy or inquire.
 
 ## Demo:
 https://silkroadss.com
