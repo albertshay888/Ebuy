@@ -21,6 +21,8 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.0.11",
     "nodemon": "^2.0.14",
-    "path": "^0.12.7"
+    "path": "^0.12.7",
+    "query-string": "^7.0.1",
+    "stripe": "^8.186.0"
   }
 }

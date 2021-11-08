@@ -12,6 +12,9 @@ const userSchema = mongoose.Schema({
   },
   followers: [{ type: ObjectId, ref: 'User' }],
   following: [{ type: ObjectId, ref: 'User' }],
+  stripe_account_id: '',
+  stripe_seller: {},
+  stripeSession: {},
 });
 
 export default mongoose.model('User', userSchema);

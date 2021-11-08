@@ -11,7 +11,7 @@ import {
 } from '@material-ui/core';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useLocation } from 'react-router-dom';
-import { getPlacesData, getWeatherData } from '../../api/travelAdvisorAPI';
+// import { getPlacesData, getWeatherData } from '../../api/travelAdvisorAPI';
 // import ChipInput from 'material-ui-chip-input';
 import {
   getPosts,
@@ -20,7 +20,7 @@ import {
 } from '../../actions/posts';
 import Pagination from '../Pagination.jsx';
 import Posts from '../Posts/Posts';
-//import Map from '../Map/Map';
+// import Map from '../Map/Map';
 import ChipInput from 'material-ui-chip-input';
 import Form from '../Form/Form';
 import ModalUnstyledDemo from '../Modal/Modal';
@@ -136,11 +136,16 @@ const Home = () => {
             spacing={3}
             className={classes.gridContainer}
           >
+            {/*   <Grid item xs={16} sm={9} md={12}>*/}
+            {/*remove line below and uncomment the line above*/}
+
             <Grid item xs={16} sm={9} md={12}>
-              {/*remove line below and uncomment the line above*/}
-              {/*  <Grid item xs={12} md={6}>*/}
               <Posts setCurrentId={setCurrentId} showModal={showModal} />
             </Grid>
+            {/* <Grid item xs={12} md={6}>
+              <Map posts={posts} />
+  </Grid> */}
+
             {/*remove map componement*/}
             {/*map*/}
             {/*

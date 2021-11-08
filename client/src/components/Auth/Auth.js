@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import Cookies from 'universal-cookie';
+
 import {
   Avatar,
   Button,
@@ -17,7 +19,7 @@ import { signin, signup } from '../../actions/auth';
 import { AUTH } from '../../constants/actionTypes';
 import useStyles from './styles';
 import Input from './Input';
-
+const cookies = new Cookies();
 const initialState = {
   firstName: '',
   lastName: '',
@@ -44,8 +46,12 @@ const SignUp = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    const { firstName, email } = form;
 
+    cookies.set('firstName', firstName);
     if (isSignup) {
+      cookies.set('email', email);
+
       dispatch(signup(form, history));
     } else {
       dispatch(signin(form, history));

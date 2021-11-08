@@ -3,9 +3,9 @@ const { Schema } = mongoose;
 const { ObjectId } = mongoose.Schema;
 const postSchema = new Schema(
   {
-    title: String,
-    message: String,
-    name: String,
+    title: { type: String, required: true },
+    message: { type: String, required: true },
+    name: { type: String, required: true },
 
     tags: [String],
     creator: String,

@@ -6,7 +6,8 @@ import dotenv from 'dotenv';
 import path from 'path';
 import mongoSanitize from 'express-mongo-sanitize';
 import postRoutes from './routes/posts.js';
-import userRouter from './routes/user.js';
+import userRoutes from './routes/user.js';
+
 // const __dirname = path.resolve();
 //enable to red .env files
 dotenv.config();
@@ -36,7 +37,8 @@ app.use(bodyParser.urlencoded({ limit: '30mb', extended: true }));
 app.use(cors());
 // Setting up a route for our API
 app.use('/posts', postRoutes);
-app.use('/user', userRouter);
+app.use('/user', userRoutes);
+
 app.get('/', (req, res) => {
   res.send('Hello to Silkroad');
 });

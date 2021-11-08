@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, useMemo } from 'react';
-import { Dashboard } from '@uppy/react';
+// import { Dashboard } from '@uppy/react';
 import {
   TextField,
   Button,
@@ -10,9 +10,9 @@ import {
 } from '@material-ui/core';
 import { useDispatch, useSelector } from 'react-redux';
 import FileBase from 'react-file-base64';
-import FileUploadIcon from '@mui/icons-material/FileUpload';
+// import FileUploadIcon from '@mui/icons-material/FileUpload';
 import { useHistory, Link } from 'react-router-dom';
-import ChipInput from 'material-ui-chip-input';
+// import ChipInput from 'material-ui-chip-input';
 import AlgoliaPlaces from 'algolia-places-react';
 import { createPost, updatePost } from '../../actions/posts';
 //import { ToastContainer, toast } from 'react-toastify';

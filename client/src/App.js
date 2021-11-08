@@ -83,6 +83,7 @@ const App = () => {
         <Switch>
           <Route path='/' exact component={() => <Redirect to='/posts' />} />
           <Route path='/posts' exact component={Home} />
+
           <Route path='/posts/search' exact component={Home} />
           <Route path='/posts/:id' exact component={PostDetails} />
           <Route
@@ -91,6 +92,7 @@ const App = () => {
             // component={() => (!user ? <Auth /> : <Redirect to='/posts' />)}
             component={Auth}
           />
+
           {/*<Route path={`/profile/${user.results._id}`}>
             <Profile />
           </Route>*/}
