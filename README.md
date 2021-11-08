@@ -1,19 +1,37 @@
-## Motivation:
-
-
-
-## Features:
-
+## Introduction:
+Silkroad is a social e-commerce marketplace where sellers can post products/listings for sale and interested buyers can message postings to buy or inquire.
 
 ## Demo:
 https://silkroadss.com
 
 
+## Features:
+- Users can search for listings by name or price tags
+- Users can sign up, login, and logout 
+- Users can move to the next page of listings with pagination
+- Authenticated users can create/update/delete listing indicating description, location, price, and image
+- Authenticated users can like and unlike listings
+- Authenticated users can post messages on listings 
+
+## Technologies used:
+-	React
+- Redux
+- Redux thunk
+-	React Router 
+-	Axios
+-	Materialize UI
+- Algolia API
+- Node
+-	Express
+-	Mongoose
+- JWT
+- Bcrypt
+-	MongoDB
+
+
 ## Preview:
-<span>
+
 <img align="center" src="https://github.com/albertshay888/silkroad/blob/master/screenshots/postlisting.gif"  width="310" height="580" />
-<img align="center" src="https://github.com/albertshay888/silkroad/blob/master/screenshots/searchlisting.gif"  width="310" height="580" />
-</span>
 
 ## Mobile Screenshots:
 <img align="center" src="https://github.com/albertshay888/silkroad/blob/master/screenshots/mobile.png"  width="1200" height="300" />
@@ -29,16 +47,3 @@ https://silkroadss.com
 
 
 
-## Technologies used:
--	React
-- Redux
-- Redux thunk
--	React Router 
--	Materialize UI
--	Axios
-- Node
--	Express
--	Mongoose
-- JWT
-- Bcrypt
--	MongoDB
