@@ -1,18 +1,19 @@
 # Silkroad Design Documents
 
-## Demo:
-https://silkroadss.com
-
-+ [MVP list](mvp-list) 
-+ [Schema](schema)
-+ [State](sample-state)
-+ [Frontend routes and components](frontend-routes)
-+ [Backend routes](backend-routes)
+## Table of Contents:
++ Introduction
++ MVP list
++ Demo
++ Technologies used
++ Preview
++ Database Schema
++ State
++ Frontend-routes
++ Backend-routes
 
 
 ## Introduction:
 Silkroad is a full-stack web application, a social marketplace where users can post products/listings to sell and message postings to buy or inquire.
-
 
 ## (MVP list) Features:
 - Users can search for listings by name or price tags
@@ -21,6 +22,9 @@ Silkroad is a full-stack web application, a social marketplace where users can p
 - Authenticated users can create/update/delete listing indicating description, location, price, and image
 - Authenticated users can like and unlike listings
 - Authenticated users can post messages on listings 
+
+## Demo:
+https://silkroadss.com
 
 ## Technologies used:
 -	React
