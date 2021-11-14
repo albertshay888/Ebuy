@@ -12,6 +12,7 @@ import {
   COMMENT,
 } from '../constants/actionTypes';
 
+// eslint-disable-next-line import/no-anonymous-default-export
 export default (state = { isLoading: true, posts: [] }, action) => {
   switch (action.type) {
     case 'START_LOADING':
@@ -44,7 +45,7 @@ export default (state = { isLoading: true, posts: [] }, action) => {
       return {
         ...state,
         posts: state.posts.map((post) => {
-          if (post._id == +action.payload._id) {
+          if (post._id === +action.payload._id) {
             return action.payload;
           }
           return post;
