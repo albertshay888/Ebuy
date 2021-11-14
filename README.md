@@ -151,7 +151,7 @@ https://silkroadss.com
 + `POST /api/session` - log in
 + `DELETE /api/session` - log out
 
-### `postMessage`
+### `post`
 + `GET /profile/:id` - gets post by user
 + `GET /search` - returns details based on query input
 +  `GET / `   - gets all posts
