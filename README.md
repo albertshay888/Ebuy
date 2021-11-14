@@ -144,12 +144,8 @@ https://silkroadss.com
 ## API Endpoints
 
 ### `users`
-+ `POST /api/users` - sign up
-+ `POST /api/users` - login
-
-### `auth`
-+ `POST /api/session` - log in
-+ `DELETE /api/session` - log out
++ `POST /signup` - sign up
++ `POST /signin` - login
 
 ### `post`
 + `GET /profile/:id` - gets post by user
