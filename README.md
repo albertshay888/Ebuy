@@ -32,7 +32,7 @@ https://silkroadss.com
 - Redux thunk
 -	React Router 
 -	Axios
--	Materialize UI
+-	Material UI
 - Algolia API
 - Node
 -	Express
