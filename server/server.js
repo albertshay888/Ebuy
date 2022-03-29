@@ -18,8 +18,7 @@ const app = express();
 //express port
 // const port = process.env.PORT || 8080;
 
-//mongo port
-const CONNECTION_URL = process.env.MONGO_URI;
+
 
 //cors
 
@@ -39,9 +38,12 @@ app.use(cors());
 app.use('/posts', postRoutes);
 app.use('/user', userRoutes);
 
-app.get('/', (req, res) => {
-  res.send('Hello to Silkroad');
-});
+//mongo port
+const CONNECTION_URL = process.env.MONGO_URI;
+
+// app.get('/', (req, res) => {
+//   res.send('Hello to Silkroad');
+// });
 
 // Redirect back to index.html if urls do not match
 // app.get('*', (req, res) => {
@@ -56,8 +58,9 @@ const port = process.env.PORT || 4000;
 //connect to mongodb db
 mongoose
   .connect(CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(() => console.log(`mongo_db connected`))
-  .catch((error) => console.log(error.message));
+  .then(() => app.listen(PORT, () => console.log(`Server Running on Port: http://localhost:${PORT}`)))
+  .catch((error) => console.log(`${error} did not connect`));
 
-//listen to port
-app.listen(port, () => console.log(`Server is running on port ${port}`));
+
+
+mongoose.set('useFindAndModify', false);
