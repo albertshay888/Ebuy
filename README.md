@@ -1,4 +1,4 @@
-# Silkroad Design Documents
+# Ebuy Design Documents
 
 ## Table of Contents:
 + Introduction
