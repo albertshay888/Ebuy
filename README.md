@@ -13,7 +13,7 @@
 
 
 ## Introduction:
-Silkroad is a full-stack web application, a social marketplace where users can post products/listings to sell and message postings to buy or inquire.
+Ebuy is a full-stack web application, a social marketplace where users can post products/listings to sell and message postings to buy or inquire.
 
 ## (MVP list) Features:
 - Users can search for listings by name or price tags
@@ -24,7 +24,7 @@ Silkroad is a full-stack web application, a social marketplace where users can p
 - Authenticated users can post messages on listings 
 
 ## Demo:
-https://silkroadss.com
+
 
 ## Technologies used:
 -	React
